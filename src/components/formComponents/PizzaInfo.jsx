@@ -1,6 +1,7 @@
 export default function PizzaInfo(props) {
-    const { name, price, description, rating, ratingCount } = props;
+    const { pizza } = props;
 
+    const { name, price, rating, ratingCount, description } = pizza
 
     return(
         <>

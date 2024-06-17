@@ -16,7 +16,8 @@ const pizza =
   }
 
 
-const initialData = {
+const initialData = 
+{
   "pizzaName": "",
   "name": "",
   "count": "",

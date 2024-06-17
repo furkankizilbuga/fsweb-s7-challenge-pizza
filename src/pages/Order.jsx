@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Form from "../components/Form";
 
@@ -15,10 +15,14 @@ export default function Order(props) {
         }
     )
 
+    useEffect(() => {
+
+    }, [pizzaFinal])
+
     return(
         <>
             <Header />
-            <Form pizza={pizza} setPizzaFinal={setPizzaFinal} />
+            <Form errors={errors} setErrors={setErrors} pizzaFinal={pizzaFinal} pizza={pizza} setPizzaFinal={setPizzaFinal} />
         </>
     )
 }
