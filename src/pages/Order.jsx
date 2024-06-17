@@ -4,7 +4,7 @@ import Form from "../components/Form";
 
 export default function Order(props) {
 
-    const { pizzas, pizzaFinal, setPizzaFinal } = props;
+    const { pizza, pizzaFinal, setPizzaFinal } = props;
 
     const [errors, setErrors] = useState(
         {
@@ -15,13 +15,10 @@ export default function Order(props) {
         }
     )
 
-
-
-
     return(
         <>
             <Header />
-            <Form pizzas={pizzas} />
+            <Form pizza={pizza} setPizzaFinal={setPizzaFinal} />
         </>
     )
 }

@@ -6,18 +6,22 @@ import Text from "./formComponents/Text";
 import Toppings from "./formComponents/Toppings";
 
 export default function Form(props) {
-    const { pizzas } = props;
+    const { pizza, setPizzaFinal, pizzaFinal } = props;
+
+    const { id, name, price, rating, ratingCount, description } = pizza
 
     const [toppings, setToppings] = useState([]);
     const [count, setCount] = useState(1);
 
+
+
     return (
         <>
-            <PizzaInfo pizzas={pizzas} />
+            <PizzaInfo name={name} price={price} rating={rating} ratingCount={ratingCount} description={description} />
             <SizeAndCrust />
             <Toppings toppings={toppings} setToppings={setToppings} />
-            <Text />
-            <Submit price={pizzas.price} toppings={toppings} count={count} setCount={setCount} />
+            <Text pizzaFinal={pizzaFinal} setPizzaFinal={setPizzaFinal} />
+            <Submit price={price} toppings={toppings} count={count} setCount={setCount} />
         </>
     )
 }
