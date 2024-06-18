@@ -3,6 +3,7 @@ export default function PizzaInfo(props) {
 
     const { name, price, rating, ratingCount, description } = pizza
 
+
     return(
         <>
             <h2>{name}</h2>

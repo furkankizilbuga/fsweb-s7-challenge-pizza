@@ -30,7 +30,7 @@ const initialData =
 
 function App() {
 
-  const [pizzaFinal, setPizzaFinal] = useState(initialData)
+  const [formData, setFormData] = useState(initialData)
 
   return (
     <Switch>
@@ -38,7 +38,7 @@ function App() {
         <Home />
       </Route>
       <Route exact path="/order">
-        <Order pizza={pizza} pizzaFinal={pizzaFinal} setPizzaFinal={setPizzaFinal} />
+        <Order pizza={pizza} formData={formData} setFormData={setFormData} />
       </Route>
       <Route exact path="/success">
         <Success />

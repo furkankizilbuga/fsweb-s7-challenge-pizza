@@ -1,20 +1,24 @@
 export default function SizeAndCrust(props) {
 
-    const { setPizzaFinal, pizzaFinal } = props;
+    const { setFormData, formData, errors, setErrors, errorMessages } = props;
 
     const radioHandler = (event) => {
         if(event.target.checked) {
-            setPizzaFinal({...pizzaFinal, [event.target.size]: event.target.id})
+            setFormData({...formData, [event.target.name]: event.target.id})
         }
+
+
     }
 
     const dropDownHandler = (event) => {
-        setPizzaFinal({...pizzaFinal, [event.target.crust]: event.target.value})
+        setFormData({...formData, [event.target.name]: event.target.value})
     }
+
 
     return(
         <div>
             <div>
+                {errors.size && <label>{errorMessages.size}</label>}
                 <label>Boyut Seç<span>*</span></label>
                 <div>
                     <span>
@@ -32,6 +36,7 @@ export default function SizeAndCrust(props) {
                 </div>
             </div>
             <div>
+                {errors.crust && <label>{errorMessages.crust}</label>}
                 <label>Hamur Seç<span>*</span></label>
                 <select onChange={dropDownHandler} name="crust" id="crust" required >
                     <option id="default" disabled selected hidden >Hamur Kalınlığı</option>

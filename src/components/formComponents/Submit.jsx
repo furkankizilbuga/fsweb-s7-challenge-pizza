@@ -2,11 +2,9 @@ import { useState } from "react";
 
 export default function Submit(props) {
 
-    const { toppings, price } = props;
+    const { toppings, price, setFormData, formData, isValid } = props;
 
     const [count, setCount] = useState(1);
-
-    let total = price * count + toppings.length * 5 * count;
 
     const countHandler = (event) => {
 
@@ -14,13 +12,13 @@ export default function Submit(props) {
 
         if(event.target.id === "increase") {
             setCount(count + 1)
-            setPizzaFinal({...pizzaFinal, "count": count})
-            setPizzaFinal({...pizzaFinal, "total": total})
+            setFormData({...formData, "count": count})
+            setFormData({...formData, "total": price * count + toppings.length * 5 * count})
         } else {
             if(count > 1) {
                 setCount(count - 1)
-                setPizzaFinal({...pizzaFinal, "count": count})
-                setPizzaFinal({...pizzaFinal, "total": total})
+                setFormData({...formData, "count": count})
+                setFormData({...formData, "total": price * count + toppings.length * 5 * count})
             }     
         }
     }
@@ -43,11 +41,11 @@ export default function Submit(props) {
                         </div>
                         <div>
                             <span>Toplam</span>
-                            <span>{total}</span>
+                            <span>{price * count + toppings.length * 5 * count}</span>
                         </div>
                     </div>
                 </div>
-                <button type="submit">SİPARİŞ VER</button>
+                <button disabled={!isValid} type="submit">SİPARİŞ VER</button>
             </div>
         </div>
     )

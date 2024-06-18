@@ -7,18 +7,27 @@ export default function Toppings(props) {
         "Ananas", "Kabak"
     ]
 
-    const { toppings, setToppings, pizzaFinal, setPizzaFinal } = props;
+    const { toppings, setToppings, formData, setFormData, errors, setErrors, errorMessages } = props;
 
     const toppingsHandler = (event) => {
 
+        let updated;
+
         if(event.target.checked) {
-            setToppings([...toppings, event.target.name])
-            setPizzaFinal({...pizzaFinal, "toppings": toppings})
+            updated = [...toppings, event.target.id]
         } else {
-            let filtered = toppings.filter((topping) => topping !== event.target.name);
-            setToppings(filtered);
-            setPizzaFinal({...pizzaFinal, "toppings": toppings})
+            updated = toppings.filter((topping) => topping !== event.target.id);
         }
+
+        setToppings(updated);
+        setFormData({...formData, "toppings": updated})
+
+        if(updated.length < 4 || updated.length > 10) {
+            setErrors({...errors, "toppings": true})
+        } else {
+            setErrors({...errors, "toppings": false})
+        }
+        console.log(errors)
     } 
 
     return(
@@ -28,12 +37,13 @@ export default function Toppings(props) {
             <p>En az 4 ve en fazla 10 malzeme seçebilirsiniz. 5₺</p>
             <div>
                 {malzemeler.map((malzeme) => {
-                    return <>
+                    return <div key={malzeme}>
                         <input onChange={toppingsHandler} disabled={false} type="checkbox" id={malzeme} name="toppings" />
                         <label htmlFor={malzeme}>{malzeme}</label>
-                    </>
+                    </div>
                 })}
             </div>
+            {errors.toppings && <label>{errorMessages.toppings}</label>}
         </div>
     )
 }
