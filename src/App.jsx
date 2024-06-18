@@ -35,7 +35,7 @@ function App() {
   return (
     <Switch>
       <Route exact path="/">
-        <Home />
+        <Home pizza={pizza} setFormData={setFormData} formData={formData} />
       </Route>
       <Route exact path="/order">
         <Order pizza={pizza} formData={formData} setFormData={setFormData} />
