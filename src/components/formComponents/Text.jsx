@@ -61,7 +61,7 @@ export default function Text(props) {
             if(event.target.value === "") {
                 setErrors({...errors, [event.target.name]: true})
             } 
-            if(event.target.value.length >= 2) {
+            if(event.target.value.length > 2) {
                 setErrors({...errors, [event.target.name]: false})
             }
             setFormData({...formData, [event.target.name]: event.target.value})
@@ -78,7 +78,7 @@ export default function Text(props) {
             <NameContainer>
                 <NameLabel>İsim<Mandatory> *</Mandatory></NameLabel>
                 <Input id="name" name="name" placeholder="Lütfen isminizi giriniz." type="text" value={formData.name} onChange={textInputHandler} /><br />
-                {errors.name && <ErrorMessage>{errorMessages.name}</ErrorMessage>}
+                {/* {errors.name && <ErrorMessage>{errorMessages.name}</ErrorMessage>} */}
             </NameContainer>
             <NoteContainer>
                 <NoteLabel>Sipariş Notu</NoteLabel>

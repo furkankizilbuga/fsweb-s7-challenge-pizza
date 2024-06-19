@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components"
 
 const SubmitContainer = styled.section`
@@ -84,29 +84,40 @@ const Button = styled.button`
         background-color: #fdab13;
     }
 `
+const Mandatory = styled.span`
+    padding-top: 10px;
+    font-size: 1.1rem;
+    text-align: center;
+    color: red;
+`
 
 export default function Submit(props) {
 
-    const { toppings, price, setFormData, formData, isValid } = props;
+    const { toppings, price, setFormData, formData, isValid, errors, setErrors } = props;
 
     const [count, setCount] = useState(1);
 
     const countHandler = (event) => {
 
         event.preventDefault();
-
+        
         if(event.target.id === "increase") {
             setCount(count + 1)
-            setFormData({...formData, "count": count})
-            setFormData({...formData, "total": price * count + toppings.length * 5 * count})
         } else {
             if(count > 1) {
-                setCount(count - 1)
-                setFormData({...formData, "count": count})
-                setFormData({...formData, "total": price * count + toppings.length * 5 * count})
+                setCount(count - 1) 
             }     
         }
+        console.log(errors)
+        
+        
     }
+    
+    useEffect(() => {        
+        setFormData({...formData, "total": price * count + toppings.length * 5 * count})
+        setFormData({...formData, "count": count})
+    }, [count])
+
 
 
     return(
@@ -131,6 +142,7 @@ export default function Submit(props) {
                     </TotalSub>
                 </TotalDetails>
                 <Button disabled={!isValid} type="submit">SİPARİŞ VER</Button>
+                {!isValid && <Mandatory>Lütfen * ile belirtilmiş alanları doldurunuz.</Mandatory>}
             </TotalWrapper>
         </SubmitContainer>
     )

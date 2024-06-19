@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import styled from "styled-components"
 
 const ToppingsContainer = styled.section`
@@ -43,7 +44,7 @@ export default function Toppings(props) {
         "Ananas", "Kabak"
     ]
 
-    const { toppings, setToppings, formData, setFormData, errors, setErrors, errorMessages } = props;
+    const { toppings, setToppings, formData, setFormData, errors, setErrors, errorMessages, setIsValid } = props;
 
     const toppingsHandler = (event) => {
 
@@ -58,13 +59,36 @@ export default function Toppings(props) {
         setToppings(updated);
         setFormData({...formData, "toppings": updated})
 
-        if(updated.length < 4 || updated.length > 10) {
+    } 
+
+    useEffect(() => {
+
+        if(formData.toppings.length < 4 || formData.toppings.length > 10) {
             setErrors({...errors, "toppings": true})
         } else {
             setErrors({...errors, "toppings": false})
         }
-        console.log(errors)
-    } 
+
+
+        setErrors(prevErrors => {
+            let newErrors = {...prevErrors}
+            let { toppings } = newErrors;
+
+            if(formData.toppings.length < 4 || formData.toppings.length > 10) {
+                toppings = true;
+            } else {
+                toppings = false;
+            }
+
+            return {...errors, "toppings": toppings}
+
+        }
+        
+    )
+        
+    
+    }, [formData])
+
 
     return(
 
@@ -79,7 +103,7 @@ export default function Toppings(props) {
                     </Topping>
                 })}
             </ToppingsList>
-            {errors.toppings && <ErrorMessage>{errorMessages.toppings}</ErrorMessage>}
+            {/* {errors.toppings && <ErrorMessage>{errorMessages.toppings}</ErrorMessage>} */}
         </ToppingsContainer>
     )
 }

@@ -64,7 +64,7 @@ export default function SizeAndCrust(props) {
     return(
         <SizeAndCrustContainer>
             <SizeContainer>
-                {errors.size && <label>{errorMessages.size}</label>}
+                {/* errors.size && <label>{errorMessages.size}</label> */}
                 <FormLabel>Boyut Seç<Mandatory> *</Mandatory></FormLabel>
                 <SizeWrapper>
                     <Radio>
@@ -82,7 +82,7 @@ export default function SizeAndCrust(props) {
                 </SizeWrapper>
             </SizeContainer>
             <CrustWrapper>
-                {errors.crust && <label>{errorMessages.crust}</label>}
+                {/* errors.crust && <label>{errorMessages.crust}</label> */}
                 <FormLabel>Hamur Seç<Mandatory> *</Mandatory></FormLabel>
                 <DropDown onChange={dropDownHandler} name="crust" id="crust" required >
                     <option id="default" disabled selected hidden >Hamur Kalınlığı</option>

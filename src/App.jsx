@@ -20,13 +20,15 @@ const initialData =
 {
   "pizzaName": "",
   "name": "",
-  "count": "",
+  "count": 1,
   "size": "",
   "crust": "",
   "toppings": [],
   "note": "",
   "total": ""
 }
+
+
 
 function App() {
 
@@ -38,7 +40,7 @@ function App() {
         <Home pizza={pizza} setFormData={setFormData} formData={formData} />
       </Route>
       <Route exact path="/order">
-        <Order pizza={pizza} formData={formData} setFormData={setFormData} />
+        <Order initialData={initialData} pizza={pizza} formData={formData} setFormData={setFormData} />
       </Route>
       <Route exact path="/success">
         <Success />

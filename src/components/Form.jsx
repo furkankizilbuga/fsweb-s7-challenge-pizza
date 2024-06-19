@@ -20,7 +20,7 @@ const errorMessages = {
 
 export default function Form(props) {
 
-    const { pizza, setFormData, formData, setErrors, errors, isValid } = props;
+    const { pizza, setFormData, formData, setErrors, errors, isValid, setIsValid } = props;
     const { price } = pizza
 
     const [toppings, setToppings] = useState([]);
@@ -30,12 +30,14 @@ export default function Form(props) {
     const submitHandler = (event) => {
         event.preventDefault()
 
-        if(!isValid) return;
+        if(isValid === false) return;
 
         const URL = "https://reqres.in/api/pizza"
         axios.post(URL, formData)
         .then((res) => {
             console.log((res))   
+            console.log(isValid)
+            console.log(errors)
         })
         .catch(err => console.warn(err))
 
@@ -46,9 +48,9 @@ export default function Form(props) {
     return (
         <FormContainer onSubmit={submitHandler}>
             <SizeAndCrust errorMessages={errorMessages} errors={errors} setErrors={setErrors} setFormData={setFormData} formData={formData} />
-            <Toppings errorMessages={errorMessages} setErrors={setErrors} errors={errors} formData={formData} setFormData={setFormData} toppings={toppings} setToppings={setToppings} />
+            <Toppings setIsValid={setIsValid} errorMessages={errorMessages} setErrors={setErrors} errors={errors} formData={formData} setFormData={setFormData} toppings={toppings} setToppings={setToppings} />
             <Text errorMessages={errorMessages} errors={errors} setErrors={setErrors} formData={formData} setFormData={setFormData} />
-            <Submit isValid={isValid} price={price} toppings={toppings} setFormData={setFormData} formData={formData} />
+            <Submit setErrors={setErrors} errors={errors} isValid={isValid} price={price} toppings={toppings} setFormData={setFormData} formData={formData} />
         </FormContainer>
     )
 }
