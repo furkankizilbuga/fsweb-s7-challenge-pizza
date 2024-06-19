@@ -5,6 +5,11 @@ import Text from "./formComponents/Text";
 import Toppings from "./formComponents/Toppings";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
+import styled from "styled-components"
+
+const FormContainer = styled.form`
+    margin: 0 35vw;
+`
 
 const errorMessages = {
     "size": "Lütfen boyut seçiniz.",
@@ -19,7 +24,6 @@ export default function Form(props) {
     const { price } = pizza
 
     const [toppings, setToppings] = useState([]);
-    //count state'i burdaydı.
 
     let history = useHistory();
 
@@ -28,13 +32,10 @@ export default function Form(props) {
 
         if(!isValid) return;
 
-        const date = new Date();
-
         const URL = "https://reqres.in/api/pizza"
         axios.post(URL, formData)
         .then((res) => {
-            console.log((res.data))
-            
+            console.log((res))   
         })
         .catch(err => console.warn(err))
 
@@ -43,11 +44,11 @@ export default function Form(props) {
 
 
     return (
-        <form onSubmit={submitHandler}>
+        <FormContainer onSubmit={submitHandler}>
             <SizeAndCrust errorMessages={errorMessages} errors={errors} setErrors={setErrors} setFormData={setFormData} formData={formData} />
             <Toppings errorMessages={errorMessages} setErrors={setErrors} errors={errors} formData={formData} setFormData={setFormData} toppings={toppings} setToppings={setToppings} />
             <Text errorMessages={errorMessages} errors={errors} setErrors={setErrors} formData={formData} setFormData={setFormData} />
             <Submit isValid={isValid} price={price} toppings={toppings} setFormData={setFormData} formData={formData} />
-        </form>
+        </FormContainer>
     )
 }

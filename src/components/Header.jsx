@@ -13,13 +13,30 @@ const Title = styled.h1`
     font-weight: bold;
     font-size: 2.3rem;
     text-align: center;
+    margin: 0 35vw;
 `
-const NavLink = styled(Link)`
+const NavLink1 = styled(Link)`
     color: white;
+    position: absolute;
+    &:hover {
+        font-weight: 600;
+    }
 `
+const NavLink2 = styled(Link)`
+    color: white;
+    font-weight: bold;
+`
+
 const Nav = styled.nav`
-    margin: 0 45rem;
+    margin: 0 35vw;
     padding-top: 2rem;
+    position:relative;
+    display: flex;
+    gap: 70px;
+`
+const Dash = styled.span`
+    color: white;
+    cursor: default;
 `
 
 export default function Header() {
@@ -27,9 +44,9 @@ export default function Header() {
         <Top>
             <Title>Teknolojik Yemekler</Title>
             <Nav>
-                <NavLink to="/">Anasayfa</NavLink>
-                <span> - </span>
-                <NavLink to="/order">Sipariş Oluştur</NavLink>
+                <NavLink1 to="/">Anasayfa</NavLink1>
+                <Dash> - </Dash>
+                <NavLink2 to="/order">Sipariş Oluştur</NavLink2>
             </Nav>
         </Top>
     )

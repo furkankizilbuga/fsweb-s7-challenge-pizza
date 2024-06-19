@@ -1,3 +1,39 @@
+import styled from "styled-components"
+
+const ToppingsContainer = styled.section`
+    padding-top: 45px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: "Barlow", sans-serif;
+    color: #5F5F5F;
+`
+
+const ToppingsHeader = styled.h2`
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: black;
+`
+const Mandatory = styled.span`
+    color: red;
+`
+
+const Topping = styled.div`
+    display: flex;
+    gap: 10px;
+    color: #555555;
+    font-weight: bold;
+`
+
+const ToppingsList = styled.div`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+`
+const ErrorMessage = styled.label`
+    color: red;
+`
+
 export default function Toppings(props) {
 
     const malzemeler = [
@@ -32,18 +68,18 @@ export default function Toppings(props) {
 
     return(
 
-        <div>
-            <h3>Ek Malzemeler<span>*</span></h3>
+        <ToppingsContainer>
+            <ToppingsHeader>Ek Malzemeler<Mandatory> *</Mandatory></ToppingsHeader>
             <p>En az 4 ve en fazla 10 malzeme seçebilirsiniz. 5₺</p>
-            <div>
+            <ToppingsList>
                 {malzemeler.map((malzeme) => {
-                    return <div key={malzeme}>
+                    return <Topping key={malzeme}>
                         <input onChange={toppingsHandler} disabled={false} type="checkbox" id={malzeme} name="toppings" />
                         <label htmlFor={malzeme}>{malzeme}</label>
-                    </div>
+                    </Topping>
                 })}
-            </div>
-            {errors.toppings && <label>{errorMessages.toppings}</label>}
-        </div>
+            </ToppingsList>
+            {errors.toppings && <ErrorMessage>{errorMessages.toppings}</ErrorMessage>}
+        </ToppingsContainer>
     )
 }
