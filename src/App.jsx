@@ -25,7 +25,7 @@ const initialData =
   "crust": "",
   "toppings": [],
   "note": "",
-  "total": ""
+  "total": null
 }
 
 

@@ -113,13 +113,13 @@ export default function Submit(props) {
         
     }
     
-    useEffect(() => {        
-        setFormData({...formData, "total": price * count + toppings.length * 5 * count})
-        setFormData({...formData, "count": count})
-    }, [count])
+    useEffect(() => {  
+        const total = price * count + toppings.length * 5 * count;      
+        setFormData({...formData, count, total})
+    }, [count, toppings.length])
 
 
-
+    console.log(formData)
     return(
         <SubmitContainer>
             <CountWrapper>
