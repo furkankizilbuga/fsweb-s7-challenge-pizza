@@ -141,8 +141,8 @@ export default function Submit(props) {
                         </Toplam>
                     </TotalSub>
                 </TotalDetails>
-                <Button disabled={!isValid} type="submit">SİPARİŞ VER</Button>
-                {!isValid && <Mandatory>Lütfen * ile belirtilmiş alanları doldurunuz.</Mandatory>}
+                <Button data-cy="form-submit" disabled={!isValid} type="submit">SİPARİŞ VER</Button>
+                {!isValid && <Mandatory data-cy="error-message">Lütfen * ile belirtilmiş alanları doldurunuz.</Mandatory>}
             </TotalWrapper>
         </SubmitContainer>
     )

@@ -77,7 +77,7 @@ export default function Text(props) {
         <TextContainer>
             <NameContainer>
                 <NameLabel>İsim<Mandatory> *</Mandatory></NameLabel>
-                <Input id="name" name="name" placeholder="Lütfen isminizi giriniz." type="text" value={formData.name} onChange={textInputHandler} /><br />
+                <Input data-cy="name-input" id="name" name="name" placeholder="Lütfen isminizi giriniz." type="text" value={formData.name} onChange={textInputHandler} /><br />
                 {/* {errors.name && <ErrorMessage>{errorMessages.name}</ErrorMessage>} */}
             </NameContainer>
             <NoteContainer>

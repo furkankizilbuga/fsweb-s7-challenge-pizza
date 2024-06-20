@@ -68,15 +68,15 @@ export default function SizeAndCrust(props) {
                 <FormLabel>Boyut Seç<Mandatory> *</Mandatory></FormLabel>
                 <SizeWrapper>
                     <Radio>
-                        <input onChange={radioHandler} type="radio" name="size" id="küçük" />
+                        <input data-cy="radio-kucuk" onChange={radioHandler} type="radio" name="size" id="küçük" />
                         <label htmlFor="küçük" >Küçük</label>
                     </Radio>
                     <Radio>
-                        <input onChange={radioHandler} type="radio" name="size" id="orta" />
+                        <input data-cy="radio-orta" onChange={radioHandler} type="radio" name="size" id="orta" />
                         <label htmlFor="orta" >Orta</label>
                     </Radio>
                     <Radio>
-                        <input onChange={radioHandler} type="radio" name="size" id="büyük" />
+                        <input data-cy="radio-buyuk" onChange={radioHandler} type="radio" name="size" id="büyük" />
                         <label htmlFor="büyük" >Büyük</label>
                     </Radio>
                 </SizeWrapper>
@@ -84,11 +84,11 @@ export default function SizeAndCrust(props) {
             <CrustWrapper>
                 {/* errors.crust && <label>{errorMessages.crust}</label> */}
                 <FormLabel>Hamur Seç<Mandatory> *</Mandatory></FormLabel>
-                <DropDown onChange={dropDownHandler} name="crust" id="crust" required >
+                <DropDown data-cy="dropdown" onChange={dropDownHandler} name="crust" id="crust" required >
                     <option id="default" disabled selected hidden >Hamur Kalınlığı</option>
-                    <option id="ince">İnce</option>
-                    <option id="orta">Orta</option>
-                    <option id="kalın">Kalın</option>
+                    <option data-cy="ince" id="ince">İnce</option>
+                    <option data-cy="orta" id="orta">Orta</option>
+                    <option data-cy="kalin" id="kalın">Kalın</option>
                 </DropDown>
             </CrustWrapper>
         </SizeAndCrustContainer>

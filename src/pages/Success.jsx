@@ -5,22 +5,20 @@ const Background = styled.main`
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    position: relative;
+    gap: 15rem;
 `
 const Title = styled.h1`
     color: white;
     font-family: 'Roboto Condensed Variable', sans-serif;
     font-weight: bold;
     font-size: 2.3rem;
-    margin-bottom: 60rem;
+    margin-top: 2vw;
 `
 const SuccessContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
 `
 const Success1 = styled.p`
     color: white;

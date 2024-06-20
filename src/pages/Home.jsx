@@ -82,7 +82,7 @@ export default function Home(props) {
                     <Motto1>KOD ACIKTIRIR</Motto1>
                     <Motto2>PİZZA DOYURUR</Motto2>
                 </MottoContainer>
-                <Button onClick={clickHandler} id={pizza.name} aria-label="order">ACIKTIM</Button>
+                <Button data-cy="home-button" onClick={clickHandler} id={pizza.name} aria-label="order">ACIKTIM</Button>
             </Container>
         </Background>
     )
