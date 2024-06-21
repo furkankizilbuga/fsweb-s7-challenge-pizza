@@ -6,7 +6,12 @@ const SubmitContainer = styled.section`
     justify-content: space-between;
     padding-top: 40px;
     margin-bottom: 120px;
-    flex-wrap: wrap;                         //media-query ile düzenlenecek.
+    flex-wrap: wrap;              
+
+    @media(max-width: 1500px) {
+        justify-content: center;
+        gap: 15px;
+    }
 `
 
 const CountWrapper = styled.div`
@@ -50,6 +55,9 @@ const TotalDetails = styled.div`
     border: 1px solid #c5c5c5;
     border-radius: 5px 5px 0 0;
     gap: 15px;
+    @media(max-width: 1500px) {
+        width: 100%;
+    }
 `
 const TotalHeader = styled.h2`
     font-size: 1.25rem;

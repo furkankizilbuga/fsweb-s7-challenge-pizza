@@ -25,6 +25,7 @@ const NavLink1 = styled(Link)`
 const NavLink2 = styled(Link)`
     color: white;
     font-weight: bold;
+    white-space: nowrap;
 `
 
 const Nav = styled.nav`
@@ -33,6 +34,12 @@ const Nav = styled.nav`
     position:relative;
     display: flex;
     gap: 70px;
+
+    @media(max-width: 1500px) {
+        border: 1px solid lime;
+        align-items: center;
+        
+    }
 `
 const Dash = styled.span`
     color: white;

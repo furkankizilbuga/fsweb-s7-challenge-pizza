@@ -19,6 +19,10 @@ const Container = styled.div`
     text-align: center;
     margin-bottom: 20vw;
     max-width: 600px;
+
+    @media(max-width: 1500px) {
+        margin-bottom: 20rem;
+    }
 `
 
 const Title = styled.h1`
