@@ -7,8 +7,12 @@ const InfoContainer = styled.main`
     flex-direction: column;
     margin: 0 35vw;
     min-width: 360px;
-    margin-top: 1.5rem;
+    margin-top: 1.5vw;
     gap: 20px;
+    @media(max-width: 1500px) {
+        margin: 0 30vw;
+        margin-top: 1.5vw;
+    }
 `
 const PizzaName = styled.h2`
     float: left;

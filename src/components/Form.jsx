@@ -9,6 +9,10 @@ import styled from "styled-components"
 
 const FormContainer = styled.form`
     margin: 0 35vw;
+
+    @media(max-width: 1500px) {
+        margin: 0 30vw;
+    }
 `
 
 const errorMessages = {

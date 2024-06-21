@@ -6,6 +6,10 @@ const Top = styled.header`
     padding-top: 2rem;
     padding-bottom: 1.5rem;
 
+    @media(max-width: 1500px) {
+        white-space: nowrap;
+    }
+
 `
 const Title = styled.h1`
     color: white;
@@ -14,6 +18,9 @@ const Title = styled.h1`
     font-size: 2.3rem;
     text-align: center;
     margin: 0 35vw;
+    @media(max-width: 1500px) {
+        margin: 0 30vw;
+    }
 `
 const NavLink1 = styled(Link)`
     color: white;
@@ -36,9 +43,8 @@ const Nav = styled.nav`
     gap: 70px;
 
     @media(max-width: 1500px) {
-        border: 1px solid lime;
         align-items: center;
-        
+        margin: 0 30vw;
     }
 `
 const Dash = styled.span`

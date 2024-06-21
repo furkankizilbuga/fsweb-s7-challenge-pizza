@@ -6,11 +6,11 @@ const SubmitContainer = styled.section`
     justify-content: space-between;
     padding-top: 40px;
     margin-bottom: 120px;
-    flex-wrap: wrap;              
+    flex-wrap: wrap;             
 
     @media(max-width: 1500px) {
         justify-content: center;
-        gap: 15px;
+        gap: 35px;
     }
 `
 
@@ -44,6 +44,10 @@ const TotalWrapper = styled.div`
     display: flex;
     flex-direction: column;
     font-family: "Barlow", sans-serif;
+
+    @media(max-width: 1500px) {
+        width: 100%;
+    }
     
 `
 const TotalDetails = styled.div`

@@ -853,7 +853,7 @@ describe('Order Page Tests', () => {
 
   describe("All Valid Button Enabled", () => {
 
-    it("All Valid", () => {
+    it.only("All Valid", () => {
 
       cy.get('[data-cy="radio-kucuk"]').check()
       cy.get('[data-cy="dropdown"]').select("İnce")
@@ -867,6 +867,8 @@ describe('Order Page Tests', () => {
           
       })
       cy.get('[data-cy="form-submit"]').should("not.be.disabled")
+      cy.get('[data-cy="form-submit"]').click()
+      cy.url().should("contain", "/success")
     })
 
     })
