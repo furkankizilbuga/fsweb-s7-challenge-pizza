@@ -57,9 +57,13 @@ export default function Header() {
         <Top>
             <Title>Teknolojik Yemekler</Title>
             <Nav>
-                <NavLink1 to="/">Anasayfa</NavLink1>
+                <NavLink1 
+                    aria-label="Ana Sayfa" 
+                    to="/">Anasayfa</NavLink1>
                 <Dash> - </Dash>
-                <NavLink2 to="/order">Sipariş Oluştur</NavLink2>
+                <NavLink2 
+                    aria-label="Sipariş Oluştur" 
+                    to="/order">Sipariş Oluştur</NavLink2>
             </Nav>
         </Top>
     )

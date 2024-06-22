@@ -55,8 +55,18 @@ export default function Order(props) {
     return(
         <>
             <Header />
-            <PizzaInfo pizza={pizza} setFormData={setFormData} formData={formData} />
-            <Form setIsValid={setIsValid} isValid={isValid} errors={errors} setErrors={setErrors} formData={formData} pizza={pizza} setFormData={setFormData} />
+            <PizzaInfo 
+                pizza={pizza} 
+                setFormData={setFormData} 
+                formData={formData} />
+            <Form 
+                setIsValid={setIsValid} 
+                isValid={isValid} 
+                errors={errors} 
+                setErrors={setErrors} 
+                formData={formData} 
+                pizza={pizza} 
+                setFormData={setFormData} />
         </>
     )
 }

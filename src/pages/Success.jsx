@@ -26,12 +26,20 @@ const Success1 = styled.p`
     font-size: 4rem;
     padding-top: 1px;
     margin-bottom: -1.5rem;
+
+    @media(max-width: 1000px) {
+        font-size: 3rem;
+    }
 `
 const Success2 = styled.p`
     color: white;
     font-family: "Barlow", sans-serif;
     font-size: 4rem;
     padding-top: 1px;
+
+    @media(max-width: 1000px) {
+        font-size: 3rem;
+    }
 `
 
 

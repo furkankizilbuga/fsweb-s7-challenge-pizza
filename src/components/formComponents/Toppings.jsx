@@ -93,7 +93,7 @@ export default function Toppings(props) {
     return(
 
         <ToppingsContainer>
-            <ToppingsHeader>Ek Malzemeler<Mandatory> *</Mandatory></ToppingsHeader>
+            <ToppingsHeader aria-label="Ek Malzemeler">Ek Malzemeler<Mandatory> *</Mandatory></ToppingsHeader>
             <p>En az 4 ve en fazla 10 malzeme seçebilirsiniz. 5₺</p>
             <ToppingsList data-cy="checkbox-container">
                 {malzemeler.map((malzeme, index) => {

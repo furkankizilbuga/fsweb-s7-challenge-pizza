@@ -76,12 +76,12 @@ export default function Text(props) {
     return(
         <TextContainer>
             <NameContainer>
-                <NameLabel>İsim<Mandatory> *</Mandatory></NameLabel>
+                <NameLabel aria-label="İsim">İsim<Mandatory> *</Mandatory></NameLabel>
                 <Input data-cy="name-input" id="name" name="name" placeholder="Lütfen isminizi giriniz." type="text" value={formData.name} onChange={textInputHandler} /><br />
                 {/* {errors.name && <ErrorMessage>{errorMessages.name}</ErrorMessage>} */}
             </NameContainer>
             <NoteContainer>
-                <NoteLabel>Sipariş Notu</NoteLabel>
+                <NoteLabel aria-label="Sipariş Notu">Sipariş Notu</NoteLabel>
                 <Input id="note" name="note" placeholder="Siparişinize eklemek istediğiniz bir not var mı?" type="text" value={formData.note} onChange={textInputHandler} />
             </NoteContainer>
         </TextContainer>

@@ -4,6 +4,8 @@ import Home from './pages/Home'
 import Order from './pages/Order'
 import Success from './pages/Success'
 import { useState } from 'react'
+import SecondSection from './components/homeComponents/SecondSection'
+
 
 const pizza = 
   {
@@ -37,10 +39,18 @@ function App() {
   return (
     <Switch>
       <Route exact path="/">
-        <Home pizza={pizza} setFormData={setFormData} formData={formData} />
+        <Home
+          pizza={pizza}
+          setFormData={setFormData} 
+          formData={formData} />
+        <SecondSection />
       </Route>
       <Route exact path="/order">
-        <Order initialData={initialData} pizza={pizza} formData={formData} setFormData={setFormData} />
+        <Order 
+          initialData={initialData} 
+          pizza={pizza} 
+          formData={formData} 
+          setFormData={setFormData} />
       </Route>
       <Route exact path="/success">
         <Success />

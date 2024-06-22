@@ -135,9 +135,9 @@ export default function Submit(props) {
     return(
         <SubmitContainer>
             <CountWrapper>
-                <CountButtonMinus id="decrease" onClick={countHandler} >-</CountButtonMinus>
+                <CountButtonMinus aria-label="Adet azalt" id="decrease" onClick={countHandler} >-</CountButtonMinus>
                 <Adet>{count}</Adet>
-                <CountButtonPlus id="increase" onClick={countHandler} >+</CountButtonPlus>
+                <CountButtonPlus aria-label="Adet arttır" id="increase" onClick={countHandler} >+</CountButtonPlus>
             </CountWrapper>
             <TotalWrapper>
                 <TotalDetails>
@@ -153,7 +153,7 @@ export default function Submit(props) {
                         </Toplam>
                     </TotalSub>
                 </TotalDetails>
-                <Button data-cy="form-submit" disabled={!isValid} type="submit">SİPARİŞ VER</Button>
+                <Button aria-label="Sipariş Ver" data-cy="form-submit" disabled={!isValid} type="submit">SİPARİŞ VER</Button>
                 {!isValid && <Mandatory data-cy="error-message">Lütfen * ile belirtilmiş alanları doldurunuz.</Mandatory>}
             </TotalWrapper>
         </SubmitContainer>

@@ -65,7 +65,7 @@ export default function SizeAndCrust(props) {
         <SizeAndCrustContainer>
             <SizeContainer>
                 {/* errors.size && <label>{errorMessages.size}</label> */}
-                <FormLabel>Boyut Seç<Mandatory> *</Mandatory></FormLabel>
+                <FormLabel aria-label="Boyut Seç">Boyut Seç<Mandatory> *</Mandatory></FormLabel>
                 <SizeWrapper>
                     <Radio>
                         <input data-cy="radio-kucuk" onChange={radioHandler} type="radio" name="size" id="küçük" />
@@ -83,7 +83,7 @@ export default function SizeAndCrust(props) {
             </SizeContainer>
             <CrustWrapper>
                 {/* errors.crust && <label>{errorMessages.crust}</label> */}
-                <FormLabel>Hamur Seç<Mandatory> *</Mandatory></FormLabel>
+                <FormLabel aria-label="Hamur Seç">Hamur Seç<Mandatory> *</Mandatory></FormLabel>
                 <DropDown data-cy="dropdown" onChange={dropDownHandler} name="crust" id="crust" required >
                     <option id="default" disabled selected hidden >Hamur Kalınlığı</option>
                     <option data-cy="ince" id="ince">İnce</option>

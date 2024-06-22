@@ -40,8 +40,6 @@ export default function Form(props) {
         axios.post(URL, formData)
         .then((res) => {
             console.log((res))   
-            console.log(isValid)
-            console.log(errors)
         })
         .catch(err => console.warn(err))
 
@@ -51,10 +49,35 @@ export default function Form(props) {
 
     return (
         <FormContainer onSubmit={submitHandler}>
-            <SizeAndCrust errorMessages={errorMessages} errors={errors} setErrors={setErrors} setFormData={setFormData} formData={formData} />
-            <Toppings setIsValid={setIsValid} errorMessages={errorMessages} setErrors={setErrors} errors={errors} formData={formData} setFormData={setFormData} toppings={toppings} setToppings={setToppings} />
-            <Text errorMessages={errorMessages} errors={errors} setErrors={setErrors} formData={formData} setFormData={setFormData} />
-            <Submit setErrors={setErrors} errors={errors} isValid={isValid} price={price} toppings={toppings} setFormData={setFormData} formData={formData} />
+            <SizeAndCrust 
+                errorMessages={errorMessages} 
+                errors={errors} 
+                setErrors={setErrors} 
+                setFormData={setFormData} 
+                formData={formData} />
+            <Toppings 
+                setIsValid={setIsValid} 
+                errorMessages={errorMessages} 
+                setErrors={setErrors} 
+                errors={errors} 
+                formData={formData} 
+                setFormData={setFormData} 
+                toppings={toppings} 
+                setToppings={setToppings} />
+            <Text 
+                errorMessages={errorMessages} 
+                errors={errors} 
+                setErrors={setErrors} 
+                formData={formData} 
+                setFormData={setFormData} />
+            <Submit 
+                setErrors={setErrors} 
+                errors={errors} 
+                isValid={isValid} 
+                price={price} 
+                toppings={toppings} 
+                setFormData={setFormData} 
+                formData={formData} />
         </FormContainer>
     )
 }
