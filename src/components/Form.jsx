@@ -2,6 +2,7 @@ import { useState } from "react";
 import SizeAndCrust from "./formComponents/SizeAndCrust";
 import Submit from "./formComponents/Submit";
 import Text from "./formComponents/Text";
+//import Toppings from "./formComponents/Toppings";
 import Toppings from "./formComponents/Toppings";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
