@@ -5,6 +5,7 @@ import Order from './pages/Order'
 import Success from './pages/Success'
 import { useState } from 'react'
 import SecondSection from './components/homeComponents/SecondSection'
+import Footer from './components/Footer'
 
 
 const pizza = 
@@ -44,6 +45,7 @@ function App() {
           setFormData={setFormData} 
           formData={formData} />
         <SecondSection />
+        <Footer />
       </Route>
       <Route exact path="/order">
         <Order 

@@ -46,6 +46,7 @@ const Description = styled.p`
 
 export default function PizzaInfo(props) {
     const { pizza, formData } = props;
+    
     if (!formData.pizza) {
         return <div>Loading...</div>;
     }
