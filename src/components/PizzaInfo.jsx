@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import '@fontsource/barlow';
 import '@fontsource-variable/roboto-condensed';
+import { useEffect } from "react";
 
 const InfoContainer = styled.main`
     display: flex;
@@ -44,9 +45,14 @@ const Description = styled.p`
 `
 
 export default function PizzaInfo(props) {
-    const { pizza } = props;
+    const { pizza, formData } = props;
+    if (!formData.pizza) {
+        return <div>Loading...</div>;
+    }
 
-    const { name, price, rating, ratingCount, description } = pizza
+    const { name, price, rating, ratingCount, description } = formData.pizza
+    console.log("ekmek")
+    console.log(formData)
 
 
     return(

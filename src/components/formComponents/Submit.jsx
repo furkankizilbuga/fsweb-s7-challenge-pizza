@@ -121,7 +121,7 @@ export default function Submit(props) {
             }     
         }
         console.log(errors)
-        
+        console.log(formData)
         
     }
     

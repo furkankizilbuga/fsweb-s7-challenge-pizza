@@ -49,7 +49,9 @@ export default function Order(props) {
     }, [formData]);
 
     useEffect(() => {
-        setFormData(initialData)
+        if(formData.pizza !== initialData.pizza) setFormData({...formData, "pizza": pizza})
+        else setFormData(initialData)
+        
     }, [])
 
     return(

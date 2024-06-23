@@ -20,7 +20,7 @@ const pizza =
 
 const initialData = 
 {
-  "pizzaName": "",
+  "pizza": {},
   "name": "",
   "count": 1,
   "size": "",

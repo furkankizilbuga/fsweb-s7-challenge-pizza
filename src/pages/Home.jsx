@@ -75,7 +75,7 @@ export default function Home(props) {
 
     const clickHandler = (event) => {
         history.push("/order")
-        setFormData({...formData, "pizzaName": event.target.id})
+        setFormData({...formData, "pizza": event.target.pizza})
     }
 
     return(
@@ -86,7 +86,7 @@ export default function Home(props) {
                     <Motto1>KOD ACIKTIRIR</Motto1>
                     <Motto2>PİZZA DOYURUR</Motto2>
                 </MottoContainer>
-                <Button data-cy="home-button" onClick={clickHandler} id={pizza.name} aria-label="order">ACIKTIM</Button>
+                <Button data-cy="home-button" onClick={clickHandler} pizza={pizza} aria-label="order">ACIKTIM</Button>
             </Container>
         </Background>
     )
