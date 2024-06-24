@@ -1,11 +1,11 @@
 import { useState } from "react";
 //import SizeAndCrust from "./formComponents/SizeAndCrust";
-import SizeAndCrust from "./IT2/SizeAndCrust";
+import SizeAndCrust from "../formComponents/SizeAndCrust";
 //import Submit from "./formComponents/Submit";
-import Submit from "./IT2/Submit";
+import Submit from "../formComponents/Submit";
 //import Text from "./formComponents/Text";
-import Text from "./IT2/Text";
-import Toppings from "./IT2/Toppings";
+import Text from "../formComponents/Text";
+import Toppings from "../formComponents/Toppings";
 //import Toppings from "./formComponents/Toppings";
 import { useHistory } from "react-router-dom";
 import axios from "axios";

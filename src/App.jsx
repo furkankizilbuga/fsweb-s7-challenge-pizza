@@ -2,11 +2,10 @@ import './App.css'
 import { Switch, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Order from './pages/Order'
-//import Success from './pages/Success'
-import Success from './components/IT2/Success'
+import Success from './pages/Success'
 import { useState } from 'react'
-import SecondSection from './components/homeComponents/SecondSection'
-import Footer from './components/Footer'
+import SecondSection from './components/IT2/homeComponents/SecondSection'
+import Footer from './components/IT2/Footer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -47,7 +46,10 @@ function App() {
           pizza={pizza}
           setFormData={setFormData} 
           formData={formData} />
-        <SecondSection />
+        <SecondSection
+          pizza={pizza}
+          setFormData={setFormData} 
+          formData={formData} />
         <Footer />
       </Route>
       <Route exact path="/order">
