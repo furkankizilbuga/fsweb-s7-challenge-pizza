@@ -255,6 +255,7 @@ export default function SecondSection(props) {
 
     const clickHandler = (event) => {
         history.push("/order")
+        window.scrollTo(0, 0);
         setFormData({...formData, "pizza": event.target.pizza})
     }
 
