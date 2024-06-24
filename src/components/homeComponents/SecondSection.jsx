@@ -29,6 +29,10 @@ const ItemName = styled.span`
     font-size: 1vw;
 `
 
+const MainSection = styled.main`
+
+`
+
 export default function SecondSection() {
     return(
         <Section>
@@ -58,6 +62,50 @@ export default function SecondSection() {
                     <ItemName>Gazlı İçecek</ItemName>
                 </HeaderItemContainer>
             </Header>
+            <MainSection>
+                <div>
+                    <div>Özel lezettusz</div>
+                    <aside>
+                        <div>hackatlon</div>
+                        <div>çook hızlı</div>
+                    </aside>
+                </div>
+                <div>
+                    <h3>en çok paketlenen</h3>
+                    <h2>Acıktıran kodlar</h2>
+                </div>
+                <div>
+                    <div>
+                        <img src="" />
+                        <span>Ramen</span>
+                    </div>
+                    <div>
+                        <img src="" />
+                        <span>Pizza</span>
+                    </div>
+                    <div>
+                        <img src="" />
+                        <span>Burger</span>
+                    </div>
+                    <div>
+                        <img src="" />
+                        <span>French Fries</span>
+                    </div>
+                    <div>
+                        <img src="" />
+                        <span>Fast Food</span>
+                    </div>
+                    <div>
+                        <img src="" />
+                        <span>Soft Drinks</span>
+                    </div>
+                </div>
+                <div>
+                    <div>Terminal</div>
+                    <div>position</div>
+                    <div>useEffect</div>
+                </div>
+            </MainSection>
         </Section>
     )
 }

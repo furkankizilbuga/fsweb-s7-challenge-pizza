@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SubmitContainer = styled.section`
     display: flex;
@@ -91,9 +93,7 @@ const Button = styled.button`
     background: #FDC913;
     padding: 1rem;
     border-radius: 0 0 5px 5px;
-    &:hover {
-        background-color: #fdab13;
-    }
+    cursor: pointer;
 `
 const Mandatory = styled.span`
     padding-top: 10px;
@@ -104,7 +104,7 @@ const Mandatory = styled.span`
 
 export default function Submit(props) {
 
-    const { toppings, price, setFormData, formData, isValid, errors, setErrors } = props;
+    const { toppings, price, setFormData, formData, isValid, errors, setErrors, handleClick } = props;
 
     const [count, setCount] = useState(1);
 
@@ -152,7 +152,7 @@ export default function Submit(props) {
                         </Toplam>
                     </TotalSub>
                 </TotalDetails>
-                <Button aria-label="Sipariş Ver" data-cy="form-submit" disabled={!isValid} type="submit">SİPARİŞ VER</Button>
+                <Button aria-label="Sipariş Ver" data-cy="form-submit" onClick={handleClick} disabled={!isValid} type="submit">SİPARİŞ VER</Button>
                 {!isValid && <Mandatory data-cy="error-message">Lütfen * ile belirtilmiş alanları doldurunuz.</Mandatory>}
             </TotalWrapper>
         </SubmitContainer>

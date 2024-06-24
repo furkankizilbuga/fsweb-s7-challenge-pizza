@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 //import Header from "../components/Header";
-import Header from "../components/IT2/Header copy";
+import Header from "../components/IT2/Header";
 import Form from "../components/Form";
 //import PizzaInfo from "../components/PizzaInfo";
 import PizzaInfo from "../components/IT2/PizzaInfo";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import Footer from "../components/Footer";
 
 export default function Order(props) {
 
@@ -71,6 +74,7 @@ export default function Order(props) {
                 formData={formData} 
                 pizza={pizza} 
                 setFormData={setFormData} />
+            <Footer />
         </>
     )
 }

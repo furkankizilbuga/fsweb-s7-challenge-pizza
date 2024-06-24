@@ -9,58 +9,29 @@ const MainContainer = styled.div`
     margin: 0 16vw;
     font-family: 'Barlow', sans-serif;
     padding: 3rem 0;
-`
-const LeftFooter = styled.div`
-    display: flex;
-    align-items: center;
-    color: white;
-    gap: 2rem;
-    align-items: flex-start;
+    
+    @media(max-width: 1200px) {
+        flex-direction: column;
+        align-items: center;
+    }
 `
 
 const FooterTitle = styled.h2`
     color: white;
     font-weight: bold;
     font-family: 'Roboto Condensed Variable', sans-serif;
-    font-size: 2.1vw;
-    padding-bottom: 1rem;
+    font-size: 2rem;
+    line-height: 30px;
 `
 const SubTitle = styled.h3`
     color: white;
-    padding-bottom: 3rem;
-    font-size: 1.2vw;
-`
-const Address = styled.address`
-    display: flex;
-    flex-direction: column;
-    gap: .7vw;
-    border: 1px solid lime;
-    font-style: normal;
-`
-const SubAddress = styled.div`
-    display: flex;
-    gap: .7vw;
-`
-const HotMenus = styled.div`
-    padding-top: 3vw;
-    display: flex;
-    flex-direction: column;
-    gap: .5vw;
-    border: 1px solid lime;
-    
-`
-const HotMenuItems = styled.p`
-    font-size: .8vw;
+    font-weight: 600;
 `
 
 const ImageContainer = styled.div`
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    border: 1px solid lime;
-    max-height: 200px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
 `
 
 const Copyright = styled.div`
@@ -76,54 +47,107 @@ const Image = styled.img`
     width: 1.7vw;
     height: 1.7vw;
 `
-const AddressP = styled.p`
-    font-size: .8vw;
+
+const RightFooter = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
 `
+
+const LeftFooter = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+`
+
+const HeaderWrapper = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 9rem;
+`
+const Address = styled.address`
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 300px;
+`
+const AddressItem = styled.div`
+    display: flex;
+    color: white;
+    gap: 1vw;
+`
+const LeftBottom = styled.div`
+    display: flex;
+    color: white;
+    gap: 1vw;
+    @media(max-width: 1200px) {
+        gap: 2.3vw;
+    }
+`
+const HotMenus = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 300px;
+`
+const InstaImg = styled.img`
+    width: 100%;
+    height: auto;
+    @media(max-width: 1200px) {
+        width: 100%;
+    }
+`
+
 export default function Footer() {
     return(
         <Background>
             <MainContainer>
                 <LeftFooter>
-                    <Address>
-                        <FooterTitle>Teknolojik <br /> Yemekler</FooterTitle>
-                        <SubAddress>
-                            <Image src="Assets/mile2-aseets/footer/icons/icon-1.png" />
-                            <AddressP>341 Londonderry Road, İstanbul Türkiye</AddressP>
-                        </SubAddress>
-                        <SubAddress>
-                            <Image src="Assets/mile2-aseets/footer/icons/icon-2.png" />
-                            <AddressP>aciktim@teknolojikyemekler.com</AddressP>
-                        </SubAddress>
-                        <SubAddress>
-                            <Image src="Assets/mile2-aseets/footer/icons/icon-3.png" />
-                            <AddressP>+90 216 123 45 67</AddressP>
-                        </SubAddress>
-                    </Address>
-                    <HotMenus>
-                        <SubTitle>Sıccacık Menuler</SubTitle>
-                        <HotMenuItems>Terminal Pizza</HotMenuItems>
-                        <HotMenuItems>5 Kişilik Hackathlon Pizza</HotMenuItems>
-                        <HotMenuItems>useEffect Tavuklu Pizza</HotMenuItems>
-                        <HotMenuItems>Beyaz Console Frosty</HotMenuItems>
-                        <HotMenuItems>Testler Geçti Mutlu Burger</HotMenuItems>
-                        <HotMenuItems>Position Absolute Acı Burger</HotMenuItems>
-                    </HotMenus>
+                    <HeaderWrapper>
+                        <img src="Assets/mile2-aseets/footer/logo-footer.svg" />
+                        <SubTitle>Hot Menu</SubTitle>
+                    </HeaderWrapper>
+                    <LeftBottom>
+                        <Address>
+                            <AddressItem>
+                                <Image src="Assets/mile2-aseets/footer/icons/icon-1.png" />
+                                <span>341 Londonderry Road, Istanbul Türkiye</span>
+                            </AddressItem>
+                            <AddressItem>
+                                <Image src="Assets/mile2-aseets/footer/icons/icon-2.png" />
+                                <span>aciktim@teknolojikyemekler.com</span>
+                            </AddressItem>
+                            <AddressItem>
+                                <Image src="Assets/mile2-aseets/footer/icons/icon-3.png" />
+                                <span>+90 216 123 45 67</span>
+                            </AddressItem>
+                        </Address>
+                        <HotMenus>
+                            <p>Terminal Pizza</p>
+                            <p>5 Kişlik Hackathlon Pizza</p>
+                            <p>useEffect Tavuklu Pizza</p>
+                            <p>Beyaz Console Frosty</p>
+                            <p>Testler Geçti Mutlu Burger</p>
+                            <p>Position Absolute Acı Burger</p>
+                        </HotMenus>
+                    </LeftBottom>
                 </LeftFooter>
-                <div>
+                <RightFooter>
                     <SubTitle>Instagram</SubTitle>
                     <ImageContainer>
-                        <img src="Assets/mile2-aseets/footer/insta/li-0.png" />
-                        <img src="Assets/mile2-aseets/footer/insta/li-1.png" />
-                        <img src="Assets/mile2-aseets/footer/insta/li-2.png" />
-                        <img src="Assets/mile2-aseets/footer/insta/li-3.png" />
-                        <img src="Assets/mile2-aseets/footer/insta/li-4.png" />
-                        <img src="Assets/mile2-aseets/footer/insta/li-5.png" />
+                        <InstaImg src="Assets/mile2-aseets/footer/insta/li-0.png" />
+                        <InstaImg src="Assets/mile2-aseets/footer/insta/li-1.png" />
+                        <InstaImg src="Assets/mile2-aseets/footer/insta/li-2.png" />
+                        <InstaImg src="Assets/mile2-aseets/footer/insta/li-3.png" />
+                        <InstaImg src="Assets/mile2-aseets/footer/insta/li-4.png" />
+                        <InstaImg src="Assets/mile2-aseets/footer/insta/li-5.png" />
                     </ImageContainer>
-                </div>
+                </RightFooter>
             </MainContainer>
             <Copyright>
                 <p>© 2023 Teknolojik Yemekler</p>
-                <p>twitter</p>
+                <img src="Assets/mile2-aseets/footer/icons/icon-1.png" />
             </Copyright>
         </Background>
     )

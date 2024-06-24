@@ -62,7 +62,6 @@ const Nav = styled.nav`
 
     @media(max-width: 1500px) {
         align-items: center;
-        margin: 0 30vw;
     }
 `
 const Dash = styled.span`

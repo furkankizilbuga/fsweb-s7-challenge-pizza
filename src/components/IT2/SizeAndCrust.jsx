@@ -2,10 +2,15 @@ import styled from "styled-components"
 
 const SizeAndCrustContainer = styled.section`
     display: flex;
-    gap: 10vw;
+    gap: 7vw;
     padding-top: 45px;
     font-family: "Barlow", sans-serif;
     color: #5F5F5F;
+
+    @media(max-width: 1000px) {
+        flex-direction: column;
+    }
+
 `
 const SizeContainer = styled.div`
     display: flex;
@@ -68,7 +73,7 @@ const DropDown = styled.select`
     font-weight: bold;
     background: #FAF7F2;
     padding: 1rem;
-    padding-right: 5rem;
+    padding-right: 3vw;
     border: none;
     color: #5F5F5F;
 `

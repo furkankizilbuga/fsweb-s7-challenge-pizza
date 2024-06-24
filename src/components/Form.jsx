@@ -10,6 +10,9 @@ import Toppings from "./IT2/Toppings";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const FormContainer = styled.form`
     margin: 0 35vw;
@@ -39,7 +42,8 @@ export default function Form(props) {
         event.preventDefault()
 
         if(isValid === false) return;
-
+            
+         
         const URL = "https://reqres.in/api/pizza"
         axios.post(URL, formData)
         .then((res) => {
@@ -48,40 +52,51 @@ export default function Form(props) {
         .catch(err => console.warn(err))
 
         history.push("/success")
+
+        
     }
 
+    const handleClick = (event) => {
+        if(event.target.disabled === true) {
+            toast.error("Lütfen * ile belirtilmiş alanları doldurunuz.")
+        }
+    }
 
     return (
-        <FormContainer onSubmit={submitHandler}>
-            <SizeAndCrust 
-                errorMessages={errorMessages} 
-                errors={errors} 
-                setErrors={setErrors} 
-                setFormData={setFormData} 
-                formData={formData} />
-            <Toppings 
-                setIsValid={setIsValid} 
-                errorMessages={errorMessages} 
-                setErrors={setErrors} 
-                errors={errors} 
-                formData={formData} 
-                setFormData={setFormData} 
-                toppings={toppings} 
-                setToppings={setToppings} />
-            <Text 
-                errorMessages={errorMessages} 
-                errors={errors} 
-                setErrors={setErrors} 
-                formData={formData} 
-                setFormData={setFormData} />
-            <Submit 
-                setErrors={setErrors} 
-                errors={errors} 
-                isValid={isValid} 
-                price={price} 
-                toppings={toppings} 
-                setFormData={setFormData} 
-                formData={formData} />
-        </FormContainer>
+        <>
+            <FormContainer onSubmit={submitHandler}>
+                <SizeAndCrust 
+                    errorMessages={errorMessages} 
+                    errors={errors} 
+                    setErrors={setErrors} 
+                    setFormData={setFormData} 
+                    formData={formData} />
+                <Toppings 
+                    setIsValid={setIsValid} 
+                    errorMessages={errorMessages} 
+                    setErrors={setErrors} 
+                    errors={errors} 
+                    formData={formData} 
+                    setFormData={setFormData} 
+                    toppings={toppings} 
+                    setToppings={setToppings} />
+                <Text 
+                    errorMessages={errorMessages} 
+                    errors={errors} 
+                    setErrors={setErrors} 
+                    formData={formData} 
+                    setFormData={setFormData} />
+                <Submit
+                    handleClick={handleClick} 
+                    setErrors={setErrors} 
+                    errors={errors} 
+                    isValid={isValid} 
+                    price={price} 
+                    toppings={toppings} 
+                    setFormData={setFormData} 
+                    formData={formData} />
+            </FormContainer>
+            <ToastContainer />
+        </>
     )
 }
