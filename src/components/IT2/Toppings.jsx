@@ -44,10 +44,11 @@ const Input = styled.input`
         font-size: 20px;
         background: #FDC913;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        align-content: center;
+        padding-left: .7rem;
     }
 `
 

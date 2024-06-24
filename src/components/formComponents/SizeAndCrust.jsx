@@ -68,16 +68,16 @@ export default function SizeAndCrust(props) {
                 <FormLabel aria-label="Boyut Seç">Boyut Seç<Mandatory> *</Mandatory></FormLabel>
                 <SizeWrapper>
                     <Radio>
-                        <input data-cy="radio-kucuk" onChange={radioHandler} type="radio" name="size" id="küçük" />
-                        <label htmlFor="küçük" >Küçük</label>
+                        <input data-cy="radio-kucuk" onChange={radioHandler} type="radio" name="size" id="Küçük" />
+                        <label htmlFor="Küçük" >Küçük</label>
                     </Radio>
                     <Radio>
-                        <input data-cy="radio-orta" onChange={radioHandler} type="radio" name="size" id="orta" />
-                        <label htmlFor="orta" >Orta</label>
+                        <input data-cy="radio-orta" onChange={radioHandler} type="radio" name="size" id="Orta" />
+                        <label htmlFor="Orta" >Orta</label>
                     </Radio>
                     <Radio>
-                        <input data-cy="radio-buyuk" onChange={radioHandler} type="radio" name="size" id="büyük" />
-                        <label htmlFor="büyük" >Büyük</label>
+                        <input data-cy="radio-buyuk" onChange={radioHandler} type="radio" name="size" id="Büyük" />
+                        <label htmlFor="Büyük" >Büyük</label>
                     </Radio>
                 </SizeWrapper>
             </SizeContainer>

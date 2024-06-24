@@ -33,7 +33,7 @@ const FormLabel = styled.label`
 const Mandatory = styled.span`
     color: red;
 `
-const Radio = styled.span`
+const Radio = styled.label`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -92,16 +92,16 @@ export default function SizeAndCrust(props) {
                 <FormLabel aria-label="Boyut Seç">Boyut Seç<Mandatory> *</Mandatory></FormLabel>
                 <SizeWrapper>
                     <div>
-                        <RadioInput data-cy="radio-kucuk" onChange={radioHandler} type="radio" name="size" id="küçük" />
-                        <Radio as="label" htmlFor="küçük">S</Radio>
+                        <RadioInput data-cy="radio-kucuk" onChange={radioHandler} type="radio" name="size" id="Küçük" />
+                        <Radio htmlFor="Küçük">S</Radio>
                     </div>
                     <div>
-                        <RadioInput data-cy="radio-orta" onChange={radioHandler} type="radio" name="size" id="orta" />
-                        <Radio as="label" htmlFor="orta">M</Radio>
+                        <RadioInput data-cy="radio-orta" onChange={radioHandler} type="radio" name="size" id="Orta" />
+                        <Radio htmlFor="Orta">M</Radio>
                     </div>
                     <div>
-                        <RadioInput data-cy="radio-buyuk" onChange={radioHandler} type="radio" name="size" id="büyük" />
-                        <Radio as="label" htmlFor="büyük">L</Radio>
+                        <RadioInput data-cy="radio-buyuk" onChange={radioHandler} type="radio" name="size" id="Büyük" />
+                        <Radio htmlFor="Büyük">L</Radio>
                     </div>
                 </SizeWrapper>
             </SizeContainer>
