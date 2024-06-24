@@ -30,7 +30,77 @@ const ItemName = styled.span`
 `
 
 const MainSection = styled.main`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5rem 0;
+    margin: 0 25vw;
+    border: 1px solid lime;
+`
 
+const Thumbnails = styled.div`
+    display: flex;
+    gap: 10px;
+`
+const Lezzetus = styled.div`
+    background-image: url("Assets/mile2-aseets/cta/kart-1.png");
+`
+const Hackathlon = styled.div`
+    background-image: url("Assets/mile2-aseets/cta/kart-2.png");
+`
+const NPM = styled.div`
+    background-image: url("Assets/mile2-aseets/cta/kart-3.png");
+`
+const RightBanners = styled.aside`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+`
+
+const BannerButtons = styled.button`
+    background: white;
+    color: #CE2829;
+`
+const MiniTitle = styled.h3`
+    color: #CE2829;
+    font-family: 'Satisfy', cursive;
+`
+const MiniHeader = styled.div`
+    display: flex;
+    gap: 1vw;
+    font-family: "Barlow", sans-serif;
+`
+const MiniHeaderItem = styled.div`
+    background: white;
+    padding: .5rem .6vw;
+    display: flex;
+    align-items: center;
+`
+
+
+const BottomMenus = styled.div`
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+`
+
+const BottomMenuContainer = styled.div`
+    display: flex;
+    gap: 1rem;
+`
+const RatePrice = styled.div`
+    display: flex;
+    justify-content: space-between;
+    font-family: "Barlow", sans-serif;
+    margin-bottom: -1.5rem;
+`
+const Price = styled.span`
+    font-weight: bold;
+`
+const Rating = styled.span`
+    color: #5F5F5F;
 `
 
 export default function SecondSection() {
@@ -63,48 +133,82 @@ export default function SecondSection() {
                 </HeaderItemContainer>
             </Header>
             <MainSection>
+                <Thumbnails>
+                    <Lezzetus>
+                        <h3>Özel<br/>Lezzetus</h3>
+                        <p>Position:Absolute Acı Pizza</p>
+                        <BannerButtons>SİPARİŞ VER</BannerButtons>
+                    </Lezzetus>
+                    <RightBanners>
+                        <Hackathlon>
+                            <h4>Hackathlon<br/>Burger Menü</h4>
+                            <BannerButtons>SİPARİŞ VER</BannerButtons> 
+                        </Hackathlon>
+                        <NPM>
+                            <h4>Çoooooook hızlı<br/>npm gibi kurye</h4>
+                            <BannerButtons>SİPARİŞ VER</BannerButtons> 
+                        </NPM>
+                    </RightBanners>
+                </Thumbnails>
                 <div>
-                    <div>Özel lezettusz</div>
-                    <aside>
-                        <div>hackatlon</div>
-                        <div>çook hızlı</div>
-                    </aside>
+                    <MiniTitle>en çok paketlenen menüler</MiniTitle>
+                    <h2>Acıktıran Kodlara Doyuran Lezzetler</h2>
                 </div>
-                <div>
-                    <h3>en çok paketlenen</h3>
-                    <h2>Acıktıran kodlar</h2>
-                </div>
-                <div>
-                    <div>
-                        <img src="" />
+                <MiniHeader>
+                    <MiniHeaderItem>
+                        <img src="/Assets/mile2-aseets/icons/1.svg" />
                         <span>Ramen</span>
-                    </div>
-                    <div>
-                        <img src="" />
+                    </MiniHeaderItem>
+                    <MiniHeaderItem>
+                        <img src="/Assets/mile2-aseets/icons/2.svg" />
                         <span>Pizza</span>
-                    </div>
-                    <div>
-                        <img src="" />
+                    </MiniHeaderItem>
+                    <MiniHeaderItem>
+                        <img src="/Assets/mile2-aseets/icons/3.svg" />
                         <span>Burger</span>
-                    </div>
-                    <div>
-                        <img src="" />
+                    </MiniHeaderItem>
+                    <MiniHeaderItem>
+                        <img src="/Assets/mile2-aseets/icons/4.svg" />
                         <span>French Fries</span>
-                    </div>
-                    <div>
-                        <img src="" />
+                    </MiniHeaderItem>
+                    <MiniHeaderItem>
+                        <img src="/Assets/mile2-aseets/icons/5.svg" />
                         <span>Fast Food</span>
-                    </div>
-                    <div>
-                        <img src="" />
+                    </MiniHeaderItem>
+                    <MiniHeaderItem>
+                        <img src="/Assets/mile2-aseets/icons/6.svg" />
                         <span>Soft Drinks</span>
-                    </div>
-                </div>
-                <div>
-                    <div>Terminal</div>
-                    <div>position</div>
-                    <div>useEffect</div>
-                </div>
+                    </MiniHeaderItem>
+                </MiniHeader>
+                <BottomMenuContainer>
+                    <BottomMenus>
+                        <img src="Assets/mile2-aseets/pictures/food-1.png" />
+                        <p>Terminal Pizza</p>
+                        <RatePrice>
+                            <span>4.9</span>
+                            <span>(200)</span>
+                            <Price>60₺</Price>
+                        </RatePrice>
+                    </BottomMenus>
+                    <BottomMenus>
+                        <img src="Assets/mile2-aseets/pictures/food-2.png" />
+                        <p>Position Absolute Acı Pizza</p>
+                        <RatePrice>
+                            <Rating>4.9</Rating>
+                            <Rating>(928)</Rating>
+                            <Price>85₺</Price>
+                        </RatePrice>
+                    </BottomMenus>
+                    <BottomMenus>
+                        <img src="Assets/mile2-aseets/pictures/food-3.png" />
+                        <p>useEffect Tavuklu Burger</p>
+                        <RatePrice>
+                            <Rating>4.9</Rating>
+                            <Rating>(462)</Rating>
+                            <Price>75₺</Price>
+                        </RatePrice>
+                    </BottomMenus>
+                </BottomMenuContainer>
             </MainSection>
         </Section>
     )

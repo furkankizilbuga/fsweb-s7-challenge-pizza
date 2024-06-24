@@ -10,8 +10,7 @@ import Toppings from "./IT2/Toppings";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components"
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 
 const FormContainer = styled.form`
@@ -40,27 +39,27 @@ export default function Form(props) {
 
     const submitHandler = (event) => {
         event.preventDefault()
+        
 
-        if(isValid === false) return;
+        if(isValid === false) {
+            toast.error("Lütfen * ile belirtilmiş alanları doldurunuz.")
+        } else {
+            const URL = "https://reqres.in/api/pizza"
+            axios.post(URL, formData)
+            .then((res) => {
+                console.log((res))   
+            })
+            .catch(err => console.warn(err))
+
+            history.push("/success")
+        }
             
          
-        const URL = "https://reqres.in/api/pizza"
-        axios.post(URL, formData)
-        .then((res) => {
-            console.log((res))   
-        })
-        .catch(err => console.warn(err))
-
-        history.push("/success")
+        
 
         
     }
 
-    const handleClick = (event) => {
-        if(event.target.disabled === true) {
-            toast.error("Lütfen * ile belirtilmiş alanları doldurunuz.")
-        }
-    }
 
     return (
         <>
@@ -86,8 +85,7 @@ export default function Form(props) {
                     setErrors={setErrors} 
                     formData={formData} 
                     setFormData={setFormData} />
-                <Submit
-                    handleClick={handleClick} 
+                <Submit 
                     setErrors={setErrors} 
                     errors={errors} 
                     isValid={isValid} 
@@ -96,7 +94,6 @@ export default function Form(props) {
                     setFormData={setFormData} 
                     formData={formData} />
             </FormContainer>
-            <ToastContainer />
         </>
     )
 }

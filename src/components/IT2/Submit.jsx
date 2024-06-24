@@ -152,7 +152,7 @@ export default function Submit(props) {
                         </Toplam>
                     </TotalSub>
                 </TotalDetails>
-                <Button aria-label="Sipariş Ver" data-cy="form-submit" onClick={handleClick} disabled={!isValid} type="submit">SİPARİŞ VER</Button>
+                <Button aria-label="Sipariş Ver" data-cy="form-submit" onClick={handleClick} type="submit">SİPARİŞ VER</Button>
                 {!isValid && <Mandatory data-cy="error-message">Lütfen * ile belirtilmiş alanları doldurunuz.</Mandatory>}
             </TotalWrapper>
         </SubmitContainer>

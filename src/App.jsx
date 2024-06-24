@@ -7,6 +7,8 @@ import Success from './components/IT2/Success'
 import { useState } from 'react'
 import SecondSection from './components/homeComponents/SecondSection'
 import Footer from './components/Footer'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const pizza = 
@@ -49,6 +51,7 @@ function App() {
         <Footer />
       </Route>
       <Route exact path="/order">
+        <ToastContainer />
         <Order 
           initialData={initialData} 
           pizza={pizza} 
