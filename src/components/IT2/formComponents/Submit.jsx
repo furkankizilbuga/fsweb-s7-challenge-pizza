@@ -104,7 +104,7 @@ const Mandatory = styled.span`
 
 export default function Submit(props) {
 
-    const { toppings, price, setFormData, formData, isValid, errors, setErrors, handleClick } = props;
+    const { toppings, price, setFormData, formData, isValid, errors, handleClick } = props;
 
     const [count, setCount] = useState(1);
 

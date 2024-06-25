@@ -54,7 +54,7 @@ const Mandatory = styled.span`
 
 export default function Text(props) {
 
-    const { setFormData, formData, setErrors, errors, errorMessages } = props;
+    const { setFormData, formData, setErrors, errors } = props;
 
     const textInputHandler = (event) => {
         if(event.target.name === "name"){
@@ -78,7 +78,6 @@ export default function Text(props) {
             <NameContainer>
                 <NameLabel aria-label="İsim">İsim<Mandatory> *</Mandatory></NameLabel>
                 <Input data-cy="name-input" id="name" name="name" placeholder="Lütfen en az 3 haneli bir isim giriniz." type="text" value={formData.name} onChange={textInputHandler} /><br />
-                {/* {errors.name && <ErrorMessage>{errorMessages.name}</ErrorMessage>} */}
             </NameContainer>
             <NoteContainer>
                 <NoteLabel aria-label="Sipariş Notu">Sipariş Notu</NoteLabel>

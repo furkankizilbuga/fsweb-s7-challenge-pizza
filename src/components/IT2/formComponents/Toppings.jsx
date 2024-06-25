@@ -72,7 +72,7 @@ export default function Toppings(props) {
         "Ananas", "Kabak"
     ]
 
-    const { toppings, setToppings, formData, setFormData, errors, setErrors, errorMessages, setIsValid } = props;
+    const { toppings, setToppings, formData, setFormData, errors, setErrors } = props;
 
     const toppingsHandler = (event) => {
 
@@ -133,7 +133,6 @@ export default function Toppings(props) {
                     </Topping>
                 })}
             </ToppingsList>
-            {/* {errors.toppings && <ErrorMessage>{errorMessages.toppings}</ErrorMessage>} */}
         </ToppingsContainer>
     )
 }

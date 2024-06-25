@@ -2,7 +2,6 @@ import styled from "styled-components"
 import '@fontsource/barlow';
 import '@fontsource-variable/roboto-condensed';
 import { Link } from "react-router-dom"
-import { useEffect } from "react";
 
 const InfoContainer = styled.main`
     display: flex;
@@ -30,7 +29,6 @@ const Price = styled.p`
     font-size: 1.8rem;
     font-weight: bold;
 `
-                                                //mediaquery yaparken margini biraz azalt ki ortada sıkışmasınlar.
 const Rating = styled.div`
     display: flex;
     gap: 100px;
@@ -74,15 +72,13 @@ const Background = styled.div`
 `
 
 export default function PizzaInfo(props) {
-    const { pizza, formData } = props;
+    const { formData } = props;
     
     if (!formData.pizza) {
         return <div>Loading...</div>;
     }
 
     const { name, price, rating, ratingCount, description } = formData.pizza
-    console.log("ekmek")
-    console.log(formData)
 
 
     return(

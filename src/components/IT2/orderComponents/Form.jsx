@@ -21,13 +21,6 @@ const FormContainer = styled.form`
     }
 `
 
-const errorMessages = {
-    "size": "Lütfen boyut seçiniz.",
-    "crust": "Lütfen hamur seçiniz.",
-    "toppings": "Lütfen belirtilen miktarda seçiniz.",
-    "name": "Lütfen en az 3 haneli bir isim giriniz.",
-}
-
 export default function Form(props) {
 
     const { pizza, setFormData, formData, setErrors, errors, isValid, setIsValid } = props;
@@ -69,14 +62,9 @@ export default function Form(props) {
         <>
             <FormContainer onSubmit={submitHandler}>
                 <SizeAndCrust 
-                    errorMessages={errorMessages} 
-                    errors={errors} 
-                    setErrors={setErrors} 
                     setFormData={setFormData} 
                     formData={formData} />
                 <Toppings 
-                    setIsValid={setIsValid} 
-                    errorMessages={errorMessages} 
                     setErrors={setErrors} 
                     errors={errors} 
                     formData={formData} 
@@ -84,13 +72,11 @@ export default function Form(props) {
                     toppings={toppings} 
                     setToppings={setToppings} />
                 <Text 
-                    errorMessages={errorMessages} 
                     errors={errors} 
                     setErrors={setErrors} 
                     formData={formData} 
                     setFormData={setFormData} />
                 <Submit 
-                    setErrors={setErrors} 
                     errors={errors} 
                     isValid={isValid} 
                     price={price} 
