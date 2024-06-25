@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 
 const ToppingsContainer = styled.section`
@@ -72,22 +72,31 @@ export default function Toppings(props) {
         "Ananas", "Kabak"
     ]
 
-    const { toppings, setToppings, formData, setFormData, errors, setErrors } = props;
+    let initialArray = Array(malzemeler.length).fill(false)
 
-    const toppingsHandler = (event) => {
+    const [chosen, setChosen] = useState([]);
+    const [isCheckedArr, setIsCheckedArr] = useState(initialArray)
 
-        let updated;
+    const { formData, setFormData, errors, setErrors } = props;
 
+    const toppingHandler = (event) => {
         if(event.target.checked) {
-            updated = [...toppings, event.target.id]
+            setChosen([...chosen, event.target.value])
+            let newArr = [...isCheckedArr]
+            newArr[event.target.id] = true;
+            setIsCheckedArr(newArr)
         } else {
-            updated = toppings.filter((topping) => topping !== event.target.id);
+            let updated = chosen.filter(topping => topping !== event.target.value)
+            setChosen(updated)
+            let newArr = [...isCheckedArr]
+            newArr[event.target.id] = false;
+            setIsCheckedArr(newArr)
         }
+    }
 
-        setToppings(updated);
-        setFormData({...formData, "toppings": updated})
-
-    } 
+    useEffect(() => {
+        setFormData({...formData, "toppings": chosen})
+    }, [chosen])
 
     useEffect(() => {
 
@@ -127,9 +136,15 @@ export default function Toppings(props) {
                 {malzemeler.map((malzeme, index) => {
                     return <Topping data-cy="checkbox-wrapper" key={index}>
                         
-                        <Input onChange={toppingsHandler} disabled={false} type="checkbox" id={malzeme} name="toppings" />
-                        <NewInput htmlFor={malzeme}></NewInput>
-                        <label data-cy="topping-label" htmlFor={malzeme}>{malzeme}</label>
+                        <Input 
+                            onChange={toppingHandler} 
+                            checked={isCheckedArr[index]} 
+                            value={malzeme} 
+                            type="checkbox" 
+                            id={index} 
+                            name="toppings" />
+                        <NewInput htmlFor={index}></NewInput>
+                        <label data-cy="topping-label" htmlFor={index}>{malzeme}</label>
                     </Topping>
                 })}
             </ToppingsList>

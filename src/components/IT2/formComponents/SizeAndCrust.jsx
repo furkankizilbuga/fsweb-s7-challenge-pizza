@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 
 const SizeAndCrustContainer = styled.section`
@@ -81,15 +82,26 @@ const DropDown = styled.select`
 export default function SizeAndCrust(props) {
     const { setFormData, formData } = props;
 
-    const radioHandler = (event) => {
-        if (event.target.checked) {
-            setFormData({ ...formData, [event.target.name]: event.target.id })
-        }
+    const [size, setSize] = useState("")
+    const [crust, setCrust] = useState("")
+
+    const sizeHandler = (event) => {
+        setSize(event.target.value)
     }
 
-    const dropDownHandler = (event) => {
-        setFormData({ ...formData, [event.target.name]: event.target.value })
+    useEffect(() => {
+        setFormData({ ...formData, "size": size})
+    }, [size])
+
+    
+    const crustHandler = (event) => {
+        setCrust(event.target.value)
     }
+
+    useEffect(() => {
+        setFormData({ ...formData, "crust": crust})
+    }, [crust])
+
 
     return (
         <SizeAndCrustContainer>
@@ -97,26 +109,26 @@ export default function SizeAndCrust(props) {
                 <FormLabel aria-label="Boyut Seç">Boyut Seç<Mandatory> *</Mandatory></FormLabel>
                 <SizeWrapper>
                     <div>
-                        <RadioInput data-cy="radio-kucuk" onChange={radioHandler} type="radio" name="size" id="Küçük" />
+                        <RadioInput data-cy="radio-kucuk" onChange={sizeHandler} checked={size === "Küçük"} value="Küçük" type="radio" name="size" id="Küçük" />
                         <Radio htmlFor="Küçük">S</Radio>
                     </div>
                     <div>
-                        <RadioInput data-cy="radio-orta" onChange={radioHandler} type="radio" name="size" id="Orta" />
+                        <RadioInput data-cy="radio-orta" onChange={sizeHandler} checked={size === "Orta"} value="Orta" type="radio" name="size" id="Orta" />
                         <Radio htmlFor="Orta">M</Radio>
                     </div>
                     <div>
-                        <RadioInput data-cy="radio-buyuk" onChange={radioHandler} type="radio" name="size" id="Büyük" />
+                        <RadioInput data-cy="radio-buyuk" onChange={sizeHandler} checked={size === "Büyük"} value="Büyük" type="radio" name="size" id="Büyük" />
                         <Radio htmlFor="Büyük">L</Radio>
                     </div>
                 </SizeWrapper>
             </SizeContainer>
             <CrustWrapper>
                 <FormLabel aria-label="Hamur Seç">Hamur Seç<Mandatory> *</Mandatory></FormLabel>
-                <DropDown data-cy="dropdown" onChange={dropDownHandler} name="crust" id="crust" required >
-                    <option id="default" disabled selected hidden >- Hamur Kalınlığı Seç -</option>
-                    <option data-cy="ince" id="ince">İnce</option>
-                    <option data-cy="orta" id="orta">Orta</option>
-                    <option data-cy="kalin" id="kalın">Kalın</option>
+                <DropDown data-cy="dropdown" onChange={crustHandler} value={crust || "default"} name="crust" id="crust" required >
+                    <option id="default" value="default" disabled selected hidden >- Hamur Kalınlığı Seç -</option>
+                    <option data-cy="ince" value="İnce" id="ince">İnce</option>
+                    <option data-cy="orta" value="Orta" id="orta">Orta</option>
+                    <option data-cy="kalin" value="Kalın" id="kalın">Kalın</option>
                 </DropDown>
             </CrustWrapper>
         </SizeAndCrustContainer>

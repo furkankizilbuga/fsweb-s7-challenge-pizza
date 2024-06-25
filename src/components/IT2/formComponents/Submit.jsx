@@ -104,12 +104,12 @@ const Mandatory = styled.span`
 
 export default function Submit(props) {
 
-    const { toppings, price, setFormData, formData, isValid, errors, handleClick } = props;
+    const { price, setFormData, formData, isValid, handleClick } = props;
 
     const [count, setCount] = useState(1);
 
     const countHandler = (event) => {
-
+        console.log(formData)
         event.preventDefault();
         
         if(event.target.id === "increase") {
@@ -119,18 +119,17 @@ export default function Submit(props) {
                 setCount(count - 1) 
             }     
         }
-        console.log(errors)
+
         console.log(formData)
         
     }
     
     useEffect(() => {  
-        const total = price * count + toppings.length * 5 * count;      
+        const total = price * count + formData.toppings.length * 5 * count;      
         setFormData({...formData, count, total})
-    }, [count, toppings.length])
+    }, [count, formData.toppings.length])
 
 
-    console.log(formData)
     return(
         <SubmitContainer>
             <CountWrapper>
@@ -144,11 +143,11 @@ export default function Submit(props) {
                     <TotalSub>
                         <Secimler>
                             <span>Seçimler</span>
-                            <span>{toppings.length * 5 * count}₺</span>
+                            <span>{formData.toppings.length * 5 * count}₺</span>
                         </Secimler>
                         <Toplam>
                             <span>Toplam</span>
-                            <span>{price * count + toppings.length * 5 * count}₺</span>
+                            <span>{price * count + formData.toppings.length * 5 * count}₺</span>
                         </Toplam>
                     </TotalSub>
                 </TotalDetails>
