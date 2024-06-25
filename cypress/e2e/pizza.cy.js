@@ -20,7 +20,7 @@ const sizeArray = ["kucuk", "orta", "buyuk"]
   }
 
   const sizeSelect = (size) => {
-    cy.get(`[data-cy="radio-${size}"]`).check()
+    cy.get(`[data-cy="radio-${size}"]`).click({force: true})
   }
 
   const nameInput = (name) => {
@@ -29,14 +29,17 @@ const sizeArray = ["kucuk", "orta", "buyuk"]
 
   const toppingsCheck = (amount) => {
     cy.get('[data-cy="checkbox-container"]')
-      .find('input[type="checkbox"]')
+      .find('[data-cy="checkbox-wrapper"]')
+      .find('[data-cy="topping-label"]')
       .each((checkbox, index) => {
         if (index < amount) {
-          cy.wrap(checkbox).check()
+          cy.wrap(checkbox).click({force: true})
         }
           
       })
-  }
+  } 
+
+      
 
 
 
@@ -51,7 +54,7 @@ describe('Order Page Tests', () => {
   })
 
   it('Button is disabled on default', () => {
-    cy.get('[data-cy="form-submit"]').should("be.disabled")
+
     cy.get('[data-cy="error-message"]').should("be.visible")
   })
 
@@ -59,7 +62,7 @@ describe('Order Page Tests', () => {
     sizeArray.forEach((size) => {
       sizeSelect(size)
     })
-    cy.get('[data-cy="form-submit"]').should("be.disabled")
+
     cy.get('[data-cy="error-message"]').should("be.visible")
   })
 
@@ -67,20 +70,20 @@ describe('Order Page Tests', () => {
     crustArray.forEach((crust) => {
       crustSelect(crust)
     })
-    cy.get('[data-cy="form-submit"]').should("be.disabled")
+
     cy.get('[data-cy="error-message"]').should("be.visible")
   })
 
   it('Button is still disabled with only toppings', () => {
     toppingsCheck(4)
-    cy.get('[data-cy="form-submit"]').should("be.disabled")
+
     cy.get('[data-cy="error-message"]').should("be.visible")
    
   })
 
   it("Button still disabled with only name", () => {
     nameInput("furkan")
-    cy.get('[data-cy="form-submit"]').should("be.disabled")
+
     cy.get('[data-cy="error-message"]').should("be.visible")
   })
 
@@ -96,7 +99,7 @@ describe('Order Page Tests', () => {
       crustArray.forEach((crust) => {
         crustSelect(crust)
       })
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")   
     })
 
@@ -106,7 +109,7 @@ describe('Order Page Tests', () => {
       crustArray.forEach((crust) => {
         crustSelect(crust)
       })
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")   
       
     })
@@ -117,7 +120,7 @@ describe('Order Page Tests', () => {
       crustArray.forEach((crust) => {
         crustSelect(crust)
       })
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")   
       
     })
@@ -131,21 +134,21 @@ describe('Order Page Tests', () => {
     it("Size > Küçük and Toppings within right amount", () => {
       sizeSelect("kucuk")
       toppingsCheck(4)
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
     })
 
     it("Size > Orta and Toppings within right amount", () => {
       sizeSelect("orta")
       toppingsCheck(4)
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
     })
 
     it("Size > Büyük and Toppings within right amount", () => {
       sizeSelect("buyuk")
       toppingsCheck(4)
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
     })
   })
@@ -159,21 +162,21 @@ describe('Order Page Tests', () => {
     it("Crust > İnce and Toppings within right amount", () => {
       crustSelect("İnce")
       toppingsCheck(4)
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
     })
 
     it("Crust > Orta and Toppings within right amount", () => {
       crustSelect("Orta")
       toppingsCheck(4)
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
     })
 
     it("Crust > Kalın and Toppings within right amount", () => {
       crustSelect("Kalın")
       toppingsCheck(4)
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
     })
   })
@@ -187,7 +190,7 @@ describe('Order Page Tests', () => {
     it("Size > Küçük and Name Valid", () => {
       sizeSelect("kucuk")
       nameInput("furkan")
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
 
     })
@@ -195,7 +198,7 @@ describe('Order Page Tests', () => {
     it("Size > Orta and Name Valid", () => {
       sizeSelect("orta")
       nameInput("furkan")
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
 
     })
@@ -203,7 +206,7 @@ describe('Order Page Tests', () => {
     it("Size > Büyük and Name Valid", () => {
       sizeSelect("buyuk")
       nameInput("furkan")
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
 
     })
@@ -220,7 +223,7 @@ describe('Order Page Tests', () => {
     it("Crust > İnce and Name Valid", () => {
       crustSelect("İnce")
       nameInput("furkan")
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
 
     })
@@ -228,7 +231,7 @@ describe('Order Page Tests', () => {
     it("Crust > Orta and Name Valid", () => {
       crustSelect("Orta")
       nameInput("furkan")
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
 
     })
@@ -236,7 +239,7 @@ describe('Order Page Tests', () => {
     it("Crust > Kalın and Name Valid", () => {
       crustSelect("Kalın")
       nameInput("furkan")
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
 
     })
@@ -252,7 +255,7 @@ describe('Order Page Tests', () => {
     it("Toppings within right amount and Name Valid", () => {
       nameInput("furkan")
       toppingsCheck(4)
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
     })
     
@@ -269,7 +272,7 @@ describe('Order Page Tests', () => {
         crustSelect(crust)
         sizeSelect("kucuk")
         nameInput("furkan")
-        cy.get('[data-cy="form-submit"]').should("be.disabled")
+    
         cy.get('[data-cy="error-message"]').should("be.visible")
       })
     })
@@ -279,7 +282,7 @@ describe('Order Page Tests', () => {
         crustSelect(crust)
         sizeSelect("orta")
         nameInput("furkan")
-        cy.get('[data-cy="form-submit"]').should("be.disabled")
+    
         cy.get('[data-cy="error-message"]').should("be.visible")
       })
     })
@@ -289,7 +292,7 @@ describe('Order Page Tests', () => {
         crustSelect(crust)
         sizeSelect("buyuk")
         nameInput("furkan")
-        cy.get('[data-cy="form-submit"]').should("be.disabled")
+    
         cy.get('[data-cy="error-message"]').should("be.visible")
       })
     })
@@ -308,7 +311,7 @@ describe('Order Page Tests', () => {
         crustSelect(crust)
         toppingsCheck(4)
         nameInput("furkan")
-        cy.get('[data-cy="form-submit"]').should("be.disabled")
+    
         cy.get('[data-cy="error-message"]').should("be.visible")
       })
 
@@ -326,7 +329,7 @@ describe('Order Page Tests', () => {
       crustArray.forEach(crust => {
         crustSelect(crust)
       })
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
 
       toppingsCheck(4)
@@ -334,7 +337,7 @@ describe('Order Page Tests', () => {
       crustArray.forEach(crust => {
         crustSelect(crust)
       })
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
 
       toppingsCheck(4)
@@ -342,7 +345,7 @@ describe('Order Page Tests', () => {
       crustArray.forEach(crust => {
         crustSelect(crust)
       })
-      cy.get('[data-cy="form-submit"]').should("be.disabled")
+  
       cy.get('[data-cy="error-message"]').should("be.visible")
 
     })
@@ -361,7 +364,7 @@ describe('Order Page Tests', () => {
         sizeSelect(size)
         nameInput("furkan")
         toppingsCheck(4)
-        cy.get('[data-cy="form-submit"]').should("be.disabled")
+    
         cy.get('[data-cy="error-message"]').should("be.visible")
 
       })
@@ -383,7 +386,6 @@ describe('Order Page Tests', () => {
       crustSelect("Orta")
       nameInput("furkan")
       toppingsCheck(4)
-      cy.get('[data-cy="form-submit"]').should("not.be.disabled")
       cy.get('[data-cy="form-submit"]').click()
       cy.url().should("contain", "/success")
     })

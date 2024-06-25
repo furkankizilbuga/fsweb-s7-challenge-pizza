@@ -31,9 +31,7 @@ const ToppingsList = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
 `
-const ErrorMessage = styled.label`
-    color: red;
-`
+
 
 export default function Toppings(props) {
 
@@ -44,7 +42,7 @@ export default function Toppings(props) {
         "Ananas", "Kabak"
     ]
 
-    const { toppings, setToppings, formData, setFormData, errors, setErrors, errorMessages, setIsValid } = props;
+    const { toppings, setToppings, formData, setFormData, errors, setErrors } = props;
 
     const toppingsHandler = (event) => {
 
@@ -97,9 +95,9 @@ export default function Toppings(props) {
             <p>En az 4 ve en fazla 10 malzeme seçebilirsiniz. 5₺</p>
             <ToppingsList data-cy="checkbox-container">
                 {malzemeler.map((malzeme, index) => {
-                    return <Topping key={index}>
+                    return <Topping data-cy="checkbox-wrapper" key={index}>
                         <input onChange={toppingsHandler} disabled={false} type="checkbox" id={malzeme} name="toppings" />
-                        <label htmlFor={malzeme}>{malzeme}</label>
+                        <label data-cy="topping-checkbox" htmlFor={malzeme}>{malzeme}</label>
                     </Topping>
                 })}
             </ToppingsList>

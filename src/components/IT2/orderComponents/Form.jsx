@@ -47,11 +47,15 @@ export default function Form(props) {
             const URL = "https://reqres.in/api/pizza"
             axios.post(URL, formData)
             .then((res) => {
-                console.log((res))   
+                console.log((res))
+                history.push("/success")   
             })
-            .catch(err => console.warn(err))
+            .catch(err => {
+                console.warn(err)
+                toast.error("Bir hata oluştu. Lütfen Tekrar deneyiniz.")
+            })
 
-            history.push("/success")
+            
         }
             
          

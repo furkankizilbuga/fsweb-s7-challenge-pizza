@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-//import Header from "../components/Header";
 import Header from "../components/Header";
 import Form from "../components/IT2/orderComponents/Form";
-//import PizzaInfo from "../components/PizzaInfo";
 import PizzaInfo from "../components/IT2/orderComponents/PizzaInfo";
 import Footer from "../components/IT2/Footer";
 
@@ -56,6 +54,8 @@ export default function Order(props) {
         else setFormData(initialData)
         
     }, [])
+
+
 
     return(
         <>

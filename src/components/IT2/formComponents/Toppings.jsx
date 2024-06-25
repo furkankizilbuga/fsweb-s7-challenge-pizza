@@ -125,11 +125,11 @@ export default function Toppings(props) {
             <p>En az 4 ve en fazla 10 malzeme seçebilirsiniz. 5₺</p>
             <ToppingsList data-cy="checkbox-container">
                 {malzemeler.map((malzeme, index) => {
-                    return <Topping key={index}>
+                    return <Topping data-cy="checkbox-wrapper" key={index}>
                         
                         <Input onChange={toppingsHandler} disabled={false} type="checkbox" id={malzeme} name="toppings" />
                         <NewInput htmlFor={malzeme}></NewInput>
-                        <label htmlFor={malzeme}>{malzeme}</label>
+                        <label data-cy="topping-label" htmlFor={malzeme}>{malzeme}</label>
                     </Topping>
                 })}
             </ToppingsList>

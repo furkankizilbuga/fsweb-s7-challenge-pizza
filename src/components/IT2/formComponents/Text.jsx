@@ -77,7 +77,7 @@ export default function Text(props) {
         <TextContainer>
             <NameContainer>
                 <NameLabel aria-label="İsim">İsim<Mandatory> *</Mandatory></NameLabel>
-                <Input data-cy="name-input" id="name" name="name" placeholder="Lütfen isminizi giriniz." type="text" value={formData.name} onChange={textInputHandler} /><br />
+                <Input data-cy="name-input" id="name" name="name" placeholder="Lütfen en az 3 haneli bir isim giriniz." type="text" value={formData.name} onChange={textInputHandler} /><br />
                 {/* {errors.name && <ErrorMessage>{errorMessages.name}</ErrorMessage>} */}
             </NameContainer>
             <NoteContainer>

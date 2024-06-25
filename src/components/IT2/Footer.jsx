@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 const Background = styled.footer`
     background: #292929;
@@ -14,14 +16,6 @@ const MainContainer = styled.div`
         flex-direction: column;
         align-items: center;
     }
-`
-
-const FooterTitle = styled.h2`
-    color: white;
-    font-weight: bold;
-    font-family: 'Roboto Condensed Variable', sans-serif;
-    font-size: 2rem;
-    line-height: 30px;
 `
 const SubTitle = styled.h3`
     color: white;
@@ -147,7 +141,7 @@ export default function Footer() {
             </MainContainer>
             <Copyright>
                 <p>© 2023 Teknolojik Yemekler</p>
-                <img src="Assets/mile2-aseets/footer/icons/icon-1.png" />
+                <FontAwesomeIcon style={{cursor: "pointer"}} icon={faTwitter} />
             </Copyright>
         </Background>
     )
