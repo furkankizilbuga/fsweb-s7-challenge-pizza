@@ -42,7 +42,7 @@ export default function Form(props) {
         
 
         if(isValid === false) {
-            toast.error("Lütfen * ile belirtilmiş alanları doldurunuz.")
+            toast.error("Lütfen * ile belirtilmiş alanları istenen şekilde doldurunuz.")
         } else {
             const URL = "https://reqres.in/api/pizza"
             axios.post(URL, formData)
