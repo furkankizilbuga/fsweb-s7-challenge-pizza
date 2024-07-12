@@ -85,7 +85,7 @@ export default function PizzaInfo(props) {
         <Background>
             <InfoContainer>
                 
-                    <img src={"public/Assets/mile2-aseets/pictures/form-banner.png"} />
+                    <img src="Assets/mile2-aseets/pictures/form-banner.png" />
                     <Nav>
                         <NavLink1 
                             aria-label="Ana Sayfa" 
