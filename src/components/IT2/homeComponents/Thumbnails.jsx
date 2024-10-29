@@ -13,9 +13,9 @@ export default function Thumbnails(props) {
                         />
                         <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
                             <div className="flex flex-col text-white font-semibold">
-                                <p className="font-quattrocento text-lg md:text-2xl">
+                                <p className="font-quattrocento text-2xl">
                                     Özel Lezzetus <br /> 
-                                    <span className="font-sans text-sm md:text-base">Acı Pizza</span>
+                                    <span className="font-sans text-sm sm:text-base">Acı Pizza</span>
                                 </p>
                             </div>
                             <button 
@@ -39,7 +39,7 @@ export default function Thumbnails(props) {
                         <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
                             <p className="text-white font-quattrocento font-semibold text-md md:text-xl">
                                 Hackathlon<br/>
-                                <span className="font-sans text-sm md:text-base">Burger Menü</span>
+                                <span className="font-sans text-base">Burger Menü</span>
                             </p>
                             <button 
                                 className="bg-white rounded-full py-1 px-4 text-xs md:text-sm text-red-500 font-medium hover:bg-red-50" 
@@ -60,7 +60,7 @@ export default function Thumbnails(props) {
                             alt="Hızlı Teslimat"
                         />
                         <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
-                            <p className="font-semibold text-md md:text-xl">
+                            <p className="font-semibold text-xl">
                                 <span className="text-red-500">Çoooooook</span> hızlı<br/>
                                 npm gibi kurye
                             </p>
