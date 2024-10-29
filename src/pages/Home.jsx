@@ -2,6 +2,10 @@ import styled from "styled-components"
 import '@fontsource/barlow';
 import '@fontsource-variable/roboto-condensed';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Hero from "../components/IT2/homeComponents/Hero";
+import Choices from "../components/IT2/homeComponents/Choices";
+import Thumbnails from "../components/IT2/homeComponents/Thumbnails";
+import Recommended from "../components/IT2/homeComponents/Recommended";
 
 const Background = styled.main`
     background-image: url("../Assets/mile1-assets/home-banner.png");
@@ -78,16 +82,14 @@ export default function Home(props) {
         setFormData({...formData, "pizza": event.target.pizza})
     }
 
+    const customCSS = "bg-ivory"
+
     return(
-        <Background>
-            <Container>
-                <Title>Teknolojik Yemekler</Title>
-                <MottoContainer>
-                    <Motto1>KOD ACIKTIRIR</Motto1>
-                    <Motto2>PİZZA DOYURUR</Motto2>
-                </MottoContainer>
-                <Button data-cy="home-button" onClick={clickHandler} pizza={pizza} aria-label="order">ACIKTIM</Button>
-            </Container>
-        </Background>
+        <div>
+            <Hero formData={formData} setFormData={setFormData} pizza={pizza} />
+            <Choices customCSS={customCSS} />
+            <Thumbnails clickHandler={clickHandler} pizza={pizza} />
+            <Recommended />
+        </div>
     )
 }

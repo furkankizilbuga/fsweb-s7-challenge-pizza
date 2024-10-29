@@ -95,54 +95,38 @@ const InstaImg = styled.img`
 
 export default function Footer() {
     return(
-        <Background>
-            <MainContainer>
-                <LeftFooter>
-                    <HeaderWrapper>
-                        <img src="Assets/mile2-aseets/footer/logo-footer.svg" />
-                        <SubTitle>Hot Menu</SubTitle>
-                    </HeaderWrapper>
-                    <LeftBottom>
-                        <Address>
-                            <AddressItem>
-                                <Image src="Assets/mile2-aseets/footer/icons/icon-1.png" />
+        <footer className="bg-[#292929] py-12">
+            <div className="flex flex-col items-start mx-6 gap-10">
+                <div className="flex flex-col gap-4">
+                    <h2 className="text-white text-2xl">Teknolojik Yemekler</h2>
+                        <div className="flex flex-col gap-1">
+                            <div className="flex items-center text-white gap-2 text-sm">
+                                <img className="w-4" src="Assets/mile2-aseets/footer/icons/icon-1.png" />
                                 <span>341 Londonderry Road, Istanbul Türkiye</span>
-                            </AddressItem>
-                            <AddressItem>
-                                <Image src="Assets/mile2-aseets/footer/icons/icon-2.png" />
+                            </div>
+                            <div className="flex items-center text-white gap-2 text-sm">
+                                <img className="w-4" src="Assets/mile2-aseets/footer/icons/icon-2.png" />
                                 <span>aciktim@teknolojikyemekler.com</span>
-                            </AddressItem>
-                            <AddressItem>
-                                <Image src="Assets/mile2-aseets/footer/icons/icon-3.png" />
+                            </div>
+                            <div className="flex items-center text-white gap-2 text-sm">
+                                <img className="w-4" src="Assets/mile2-aseets/footer/icons/icon-3.png" />
                                 <span>+90 216 123 45 67</span>
-                            </AddressItem>
-                        </Address>
-                        <HotMenus>
-                            <p>Terminal Pizza</p>
-                            <p>5 Kişlik Hackathlon Pizza</p>
-                            <p>useEffect Tavuklu Pizza</p>
-                            <p>Beyaz Console Frosty</p>
-                            <p>Testler Geçti Mutlu Burger</p>
-                            <p>Position Absolute Acı Burger</p>
-                        </HotMenus>
-                    </LeftBottom>
-                </LeftFooter>
-                <RightFooter>
-                    <SubTitle>Instagram</SubTitle>
-                    <ImageContainer>
-                        <InstaImg src="Assets/mile2-aseets/footer/insta/li-0.png" />
-                        <InstaImg src="Assets/mile2-aseets/footer/insta/li-1.png" />
-                        <InstaImg src="Assets/mile2-aseets/footer/insta/li-2.png" />
-                        <InstaImg src="Assets/mile2-aseets/footer/insta/li-3.png" />
-                        <InstaImg src="Assets/mile2-aseets/footer/insta/li-4.png" />
-                        <InstaImg src="Assets/mile2-aseets/footer/insta/li-5.png" />
-                    </ImageContainer>
-                </RightFooter>
-            </MainContainer>
-            <Copyright>
-                <p>© 2023 Teknolojik Yemekler</p>
-                <FontAwesomeIcon style={{cursor: "pointer"}} icon={faTwitter} />
-            </Copyright>
-        </Background>
+                            </div>
+                        </div>
+                </div>
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                    <img className="w-20 h-20" src="Assets/mile2-aseets/footer/insta/li-0.png" />
+                    <img className="w-20 h-20" src="Assets/mile2-aseets/footer/insta/li-1.png" />
+                    <img className="w-20 h-20" src="Assets/mile2-aseets/footer/insta/li-2.png" />
+                    <img className="w-20 h-20" src="Assets/mile2-aseets/footer/insta/li-3.png" />
+                    <img className="w-20 h-20" src="Assets/mile2-aseets/footer/insta/li-4.png" />
+                    <img className="w-20 h-20" src="Assets/mile2-aseets/footer/insta/li-5.png" />
+                </div>
+                <div className="flex items-center gap-10">
+                    <p className="text-white text-sm">© 2023 Teknolojik Yemekler</p>
+                    <FontAwesomeIcon className="cursor-pointer text-blue-400" icon={faTwitter} />
+                </div>
+            </div>
+        </footer>
     )
 }

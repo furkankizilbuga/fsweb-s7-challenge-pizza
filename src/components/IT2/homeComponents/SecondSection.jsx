@@ -296,36 +296,8 @@ export default function SecondSection(props) {
 
     return(
         <Section>
-            <Header>
-                <HeaderMargin>
-                    <HeaderItemContainer>
-                        <ItemImage src="/Assets/mile2-aseets/icons/1.svg" alt="Kore" />
-                        <ItemName>YENİ! Kore</ItemName>
-                    </HeaderItemContainer>
-                    <HeaderItemContainer>
-                        <ItemImage src="/Assets/mile2-aseets/icons/2.svg" alt="Pizza" />
-                        <ItemName>Pizza</ItemName>
-                    </HeaderItemContainer>
-                    <HeaderItemContainer>
-                        <ItemImage src="/Assets/mile2-aseets/icons/3.svg" alt="Burger" />
-                        <ItemName>Burger</ItemName>
-                    </HeaderItemContainer>
-                    <HeaderItemContainer>
-                        <ItemImage src="/Assets/mile2-aseets/icons/4.svg" alt="Kızartmalar" />
-                        <ItemName>Kızartmalar</ItemName>
-                    </HeaderItemContainer>
-                    <HeaderItemContainer>
-                        <ItemImage src="/Assets/mile2-aseets/icons/5.svg" alt="Fast Food" />
-                        <ItemName>Fast Food</ItemName>
-                    </HeaderItemContainer>
-                    <HeaderItemContainer>
-                        <ItemImage src="/Assets/mile2-aseets/icons/6.svg" alt="Gazlı İçecek" />
-                        <ItemName>Gazlı İçecek</ItemName>
-                    </HeaderItemContainer>
-                </HeaderMargin>
-            </Header>
             <MainSection>
-                <Thumbnails>
+                {/*<Thumbnails>
                     <Lezzetus>
                         <LezzetusTitle>Özel<br/>Lezzetus</LezzetusTitle>
                         <LezzetusDescription>Position:Absolute Acı Pizza</LezzetusDescription>
@@ -402,7 +374,7 @@ export default function SecondSection(props) {
                             </RatePrice>
                         </BottomMenus>
                     </BottomMenuContainer>
-                </BottomSideContainer>
+                </BottomSideContainer>*/}
             </MainSection>
         </Section>
     )
