@@ -96,7 +96,7 @@ const InstaImg = styled.img`
 export default function Footer() {
     return(
         <footer className="bg-[#292929] py-12">
-            <div className="flex flex-col items-start mx-6 gap-10">
+            <div className="flex flex-col items-start mx-6 gap-10 sm:flex-row sm:items-center sm:justify-center">
                 <div className="flex flex-col gap-4">
                     <h2 className="text-white text-2xl">Teknolojik Yemekler</h2>
                         <div className="flex flex-col gap-1">

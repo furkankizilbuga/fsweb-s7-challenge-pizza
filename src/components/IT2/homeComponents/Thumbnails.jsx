@@ -1,29 +1,80 @@
 export default function Thumbnails(props) {
-
     const { clickHandler, pizza } = props;
 
-    return(
-        <div className="bg-ivory flex flex-col gap-4 px-4 py-12">
-            <div className="rounded-md bg-[url('Assets/mile2-aseets/cta/kart-1.png')] bg-cover bg-center h-40">
-                <div className="flex flex-col items-start justify-center gap-2 h-full px-5">
-                    <div className="flex flex-col text-white font-semibold text-wrap">
-                        <p className="font-quattrocento text-xl">Özel Lezzetus <br /> <span className="font-sans text-sm">Acı Pizza</span></p>
+    return (
+        <div className="bg-ivory flex justify-center py-12 md:py-20">
+            <div className="p-4 grid grid-cols-1 gap-y-4 md:grid-cols-4 md:grid-rows-2 place-items-center md:w-[850px]">
+                <div className="rounded-md relative md:col-span-2 md:row-span-2 flex items-center justify-center">
+                    <div className="relative">
+                        <img 
+                            className="w-96 object-cover rounded" 
+                            src='Assets/mile2-aseets/cta/kart-1.png' 
+                            alt="Özel Lezzetus"
+                        />
+                        <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
+                            <div className="flex flex-col text-white font-semibold">
+                                <p className="font-quattrocento text-lg md:text-2xl">
+                                    Özel Lezzetus <br /> 
+                                    <span className="font-sans text-sm md:text-base">Acı Pizza</span>
+                                </p>
+                            </div>
+                            <button 
+                                className="bg-white rounded-full py-1 px-4 text-xs md:text-sm text-red-500 font-medium hover:bg-red-50" 
+                                onClick={clickHandler} 
+                                pizza={pizza}
+                            >
+                                SİPARİŞ VER
+                            </button>
+                        </div>
                     </div>
-                    <button className="bg-white rounded-full py-1 px-4 text-xs text-red-500 font-medium" onClick={clickHandler} pizza={pizza}>SİPARİŞ VER</button>
                 </div>
-            </div>
-            <div className="rounded-md bg-[url('Assets/mile2-aseets/cta/kart-2.png')] bg-cover bg-center h-40">
-                <div className="flex flex-col items-start justify-center gap-2 h-full px-5">
-                    <p className="text-white text-xl font-quattrocento font-semibold">Hackathlon<br/><span className="font-sans text-sm">Burger Menü</span></p>
-                    <button className="bg-white rounded-full py-1 px-4 text-xs text-red-500 font-medium" onClick={clickHandler} pizza={pizza}>SİPARİŞ VER</button> 
+
+                <div className="rounded-md relative md:col-span-2 flex items-center justify-center">
+                    <div className="relative">
+                        <img 
+                            className="w-96 object-cover rounded" 
+                            src='Assets/mile2-aseets/cta/kart-2.png' 
+                            alt="Hackathlon Burger"
+                        />
+                        <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
+                            <p className="text-white font-quattrocento font-semibold text-md md:text-xl">
+                                Hackathlon<br/>
+                                <span className="font-sans text-sm md:text-base">Burger Menü</span>
+                            </p>
+                            <button 
+                                className="bg-white rounded-full py-1 px-4 text-xs md:text-sm text-red-500 font-medium hover:bg-red-50" 
+                                onClick={clickHandler} 
+                                pizza={pizza}
+                            >
+                                SİPARİŞ VER
+                            </button> 
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div className="rounded-md bg-[url('Assets/mile2-aseets/cta/kart-3.png')] bg-cover bg-center h-40">
-                <div className="flex flex-col items-start justify-center gap-2 h-full px-5">
-                    <p className="font-semibold"><span className="text-red-500">Çoooooook</span> hızlı<br/>npm gibi kurye</p>
-                    <button className="bg-white rounded-full py-1 px-4 text-xs text-red-500 font-medium" onClick={clickHandler} pizza={pizza}>SİPARİŞ VER</button> 
+
+                <div className="rounded-md relative md:col-span-2 flex items-center justify-center">
+                    <div className="relative">
+                        <img 
+                            className="w-96 object-cover rounded" 
+                            src='Assets/mile2-aseets/cta/kart-3.png' 
+                            alt="Hızlı Teslimat"
+                        />
+                        <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
+                            <p className="font-semibold text-md md:text-xl">
+                                <span className="text-red-500">Çoooooook</span> hızlı<br/>
+                                npm gibi kurye
+                            </p>
+                            <button 
+                                className="bg-white rounded-full py-1 px-4 text-xs md:text-sm text-red-500 font-medium hover:bg-red-50" 
+                                onClick={clickHandler} 
+                                pizza={pizza}
+                            >
+                                SİPARİŞ VER
+                            </button> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }

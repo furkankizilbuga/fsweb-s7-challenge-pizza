@@ -6,6 +6,7 @@ import Hero from "../components/IT2/homeComponents/Hero";
 import Choices from "../components/IT2/homeComponents/Choices";
 import Thumbnails from "../components/IT2/homeComponents/Thumbnails";
 import Recommended from "../components/IT2/homeComponents/Recommended";
+import Footer from "../components/IT2/Footer";
 
 const Background = styled.main`
     background-image: url("../Assets/mile1-assets/home-banner.png");
@@ -90,6 +91,7 @@ export default function Home(props) {
             <Choices customCSS={customCSS} />
             <Thumbnails clickHandler={clickHandler} pizza={pizza} />
             <Recommended />
+            <Footer />
         </div>
     )
 }

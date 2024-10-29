@@ -46,11 +46,10 @@ function App() {
           pizza={pizza}
           setFormData={setFormData} 
           formData={formData} />
-        <SecondSection
+        {/* <SecondSection
           pizza={pizza}
           setFormData={setFormData} 
-          formData={formData} />
-        <Footer />
+          formData={formData} /> */}
       </Route>
       <Route exact path="/order">
         <ToastContainer />
