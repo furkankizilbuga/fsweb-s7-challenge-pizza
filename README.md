@@ -1,4 +1,4 @@
-● A website for a pizza shop was created using React, Styled Components, Tailwind CSS. 
+● A website for a pizza shop was created using React, Context API, React-Hook-Form, Tailwind CSS. 
 
 ● The tests were conducted using Cypress. End-to-end testing was 
 performed using Cypress to ensure that all user interactions with the 
