@@ -9,7 +9,6 @@ import Toppings from "../formComponents/Toppings";
 //import Toppings from "./formComponents/Toppings";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
-import styled from "styled-components"
 import { toast } from 'react-toastify';
 
 export default function Form(props) {
@@ -37,15 +36,8 @@ export default function Form(props) {
             .catch(err => {
                 console.warn(err)
                 toast.error("Bir hata oluştu. Lütfen Tekrar deneyiniz.")
-            })
-
-            
-        }
-            
-         
-        
-
-        
+            }) 
+        } 
     }
 
 

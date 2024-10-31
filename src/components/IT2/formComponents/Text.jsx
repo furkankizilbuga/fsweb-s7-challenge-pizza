@@ -1,57 +1,3 @@
-import { useState } from "react";
-import styled from "styled-components"
-
-const TextContainer = styled.section`
-    display: flex;
-    flex-direction: column;
-    padding-top: 100px;
-    padding-bottom: 40px;
-    border-bottom: 2px solid #c5c5c5;
-    font-family: "Barlow", sans-serif;
-`
-
-const NameContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-`
-const NoteContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-`
-const NameLabel = styled.label`
-    color: black;
-    font-size: 1.25rem;
-    font-weight: bold;
-`
-const NoteLabel = styled.label`
-    color: black;
-    font-size: 1.25rem;
-    font-weight: bold;
-`
-const Input = styled.input`
-    padding: .7rem;
-    padding-left: 1rem;
-    border-radius: 5px;
-    background: #FAF7F2;
-
-    &::placeholder {
-        color: #5F5F5F;
-        font-weight: bold;
-        font-size: .9rem;
-
-    }
-`
-const ErrorMessage = styled.label`
-    color: red;
-    margin: -1.5rem 0 1.5rem 0;
-`
-const Mandatory = styled.span`
-    color: red;
-`
-
 export default function Text(props) {
 
     const { setFormData, formData, setErrors, errors } = props;
@@ -74,15 +20,15 @@ export default function Text(props) {
 
 
     return(
-        <TextContainer>
-            <NameContainer>
-                <NameLabel aria-label="İsim">İsim<Mandatory> *</Mandatory></NameLabel>
-                <Input data-cy="name-input" id="name" name="name" placeholder="Lütfen en az 3 haneli bir isim giriniz." type="text" value={formData.name} onChange={textInputHandler} /><br />
-            </NameContainer>
-            <NoteContainer>
-                <NoteLabel aria-label="Sipariş Notu">Sipariş Notu</NoteLabel>
-                <Input id="note" name="note" placeholder="Siparişinize eklemek istediğiniz bir not var mı?" type="text" value={formData.note} onChange={textInputHandler} />
-            </NoteContainer>
-        </TextContainer>
+        <div className="flex flex-col font-barlow py-12 border-b border-muted">
+            <div className="flex flex-col gap-2">
+                <label className="font-semibold text-xl" aria-label="İsim">İsim<span className="text-red-500"> *</span></label>
+                <input className="py-2 px-4 rounded bg-[#FAF7F2] placeholder-[#5F5F5F]  placeholder:font-bold placeholder:text-sm" data-cy="name-input" id="name" name="name" placeholder="Lütfen en az 3 haneli bir isim giriniz." type="text" value={formData.name} onChange={textInputHandler} /><br />
+            </div>
+            <div className="flex flex-col gap-2">
+                <label className="text-xl font-semibold" aria-label="Sipariş Notu">Sipariş Notu</label>
+                <input className="py-2 px-4 rounded bg-[#FAF7F2] placeholder-[#5F5F5F] placeholder:font-bold placeholder:text-sm" id="note" name="note" placeholder="Siparişinize eklemek istediğiniz bir not var mı?" type="text" value={formData.note} onChange={textInputHandler} />
+            </div>
+        </div>
     )
 }
