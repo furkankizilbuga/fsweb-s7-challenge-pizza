@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function Submit(props) {
 
-    const { price, setFormData, formData, isValid, handleClick } = props;
+    const { price, setFormData, formData, isValid } = props;
 
     const [count, setCount] = useState(1);
+    const history = useHistory();
 
     const countHandler = (event) => {
         console.log(formData)
@@ -27,6 +29,10 @@ export default function Submit(props) {
         const total = price * count + formData.toppings.length * 5 * count;      
         setFormData({...formData, count, total})
     }, [count, formData.toppings.length])
+
+    const submitHandler = () => {
+        history.push("/success")
+    }
 
 
     return(
@@ -50,7 +56,7 @@ export default function Submit(props) {
                         </div>
                     </div>
                 </div>
-                <button className="bg-[#FDC913] cursor-pointer rounded-b-md py-2" aria-label="Sipariş Ver" data-cy="form-submit" onClick={handleClick} type="submit">SİPARİŞ VER</button>
+                <button disabled={!isValid} className={`bg-[#FDC913] cursor-pointer rounded-b-md py-2 ${!isValid ? 'opacity-50 cursor-not-allowed' : ''}`} aria-label="Sipariş Ver" data-cy="form-submit" onClick={submitHandler} type="submit">SİPARİŞ VER</button>
                 {!isValid && <span className="text-red-500 text-center text-sm mx-8 mt-4" data-cy="error-message">Lütfen * ile belirtilmiş alanları doldurunuz.</span>}
             </div>
         </div>

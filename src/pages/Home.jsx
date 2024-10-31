@@ -1,4 +1,4 @@
-import styled from "styled-components"
+
 import '@fontsource/barlow';
 import '@fontsource-variable/roboto-condensed';
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
@@ -6,7 +6,6 @@ import Hero from "../components/IT2/homeComponents/Hero";
 import Choices from "../components/IT2/homeComponents/Choices";
 import Thumbnails from "../components/IT2/homeComponents/Thumbnails";
 import Recommended from "../components/IT2/homeComponents/Recommended";
-import Footer from "../components/IT2/Footer";
 import { useRef } from "react";
 
 export default function Home(props) {
@@ -34,7 +33,6 @@ export default function Home(props) {
             </div>
             <Thumbnails clickHandler={clickHandler} pizza={pizza} />
             <Recommended />
-            <Footer />
         </div>
     )
 }

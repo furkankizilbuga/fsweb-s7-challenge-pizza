@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import Header from "../components/IT2/orderComponents/Header";
 import Form from "../components/IT2/orderComponents/Form";
 import PizzaInfo from "../components/IT2/orderComponents/PizzaInfo";
-import Footer from "../components/IT2/Footer";
 
 export default function Order(props) {
 
@@ -58,8 +56,7 @@ export default function Order(props) {
 
 
     return(
-        <>
-            <Header />
+        <div className="">
             <PizzaInfo 
                 pizza={pizza} 
                 setFormData={setFormData} 
@@ -72,7 +69,6 @@ export default function Order(props) {
                 formData={formData} 
                 pizza={pizza} 
                 setFormData={setFormData} />
-            <Footer />
-        </>
+        </div>
     )
 }

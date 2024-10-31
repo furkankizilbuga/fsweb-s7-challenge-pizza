@@ -1,12 +1,8 @@
 import { useState } from "react";
-//import SizeAndCrust from "./formComponents/SizeAndCrust";
-import SizeAndCrust from "../formComponents/SizeAndCrust";
-//import Submit from "./formComponents/Submit";
-import Submit from "../formComponents/Submit";
-//import Text from "./formComponents/Text";
-import Text from "../formComponents/Text";
-import Toppings from "../formComponents/Toppings";
-//import Toppings from "./formComponents/Toppings";
+import SizeAndCrust from "./SizeAndCrust";
+import Submit from "./Submit";
+import Text from "./Text";
+import Toppings from "./Toppings";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import { toast } from 'react-toastify';
@@ -42,7 +38,8 @@ export default function Form(props) {
 
 
     return (
-        <div className="px-8" onSubmit={submitHandler}>
+        <div className="px-8 flex flex-col items-center" onSubmit={submitHandler}>
+            <div>
             <SizeAndCrust 
                 setFormData={setFormData} 
                 formData={formData} />
@@ -65,6 +62,7 @@ export default function Form(props) {
                 toppings={toppings} 
                 setFormData={setFormData} 
                 formData={formData} />
+                </div>
             </div>
     )
 }

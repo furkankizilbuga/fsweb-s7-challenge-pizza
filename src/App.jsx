@@ -4,10 +4,10 @@ import Home from './pages/Home'
 import Order from './pages/Order'
 import Success from './pages/Success'
 import { useState } from 'react'
-import SecondSection from './components/IT2/homeComponents/SecondSection'
-import Footer from './components/IT2/Footer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Header from './layouts/Header'
+import Footer from './layouts/Footer'
 
 
 const pizza = 
@@ -40,25 +40,29 @@ function App() {
   const [formData, setFormData] = useState(initialData)
 
   return (
-    <Switch>
-      <Route exact path="/">
-        <Home
-          pizza={pizza}
-          setFormData={setFormData} 
-          formData={formData} />
-      </Route>
-      <Route exact path="/order">
-        <ToastContainer />
-        <Order 
-          initialData={initialData} 
-          pizza={pizza} 
-          formData={formData} 
-          setFormData={setFormData} />
-      </Route>
-      <Route exact path="/success">
-        <Success formData={formData} />
-      </Route>
-    </Switch>
+    <>
+      <Header />
+      <Switch>
+        <Route exact path="/">
+          <Home
+            pizza={pizza}
+            setFormData={setFormData} 
+            formData={formData} />
+        </Route>
+        <Route exact path="/order">
+          <ToastContainer />
+          <Order 
+            initialData={initialData} 
+            pizza={pizza} 
+            formData={formData} 
+            setFormData={setFormData} />
+        </Route>
+        <Route exact path="/success">
+          <Success formData={formData} />
+        </Route>
+      </Switch>
+      <Footer />
+    </>
   )
 }
 
