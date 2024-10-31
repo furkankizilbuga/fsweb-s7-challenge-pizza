@@ -1,42 +1,37 @@
 import { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
+import { useFormContext } from "../../../context/FormContext";
 
-export default function Submit(props) {
+export default function Submit() {
 
-    const { price, setFormData, formData, isValid } = props;
+    const { isValid, setValue, watch, getValues } = useFormContext();
 
-    const [count, setCount] = useState(1);
-    const history = useHistory();
+    const count = watch("count") || 1;
+    const toppings = watch("toppings") || [];
+    const total = watch("total") || 0;
+    const pizza = watch("pizza") || { price: 0 };
 
     const countHandler = (event) => {
-        console.log(formData)
         event.preventDefault();
-        
-        if(event.target.id === "increase") {
-            setCount(count + 1)
-        } else {
-            if(count > 1) {
-                setCount(count - 1) 
-            }     
+        if (event.target.id === "increase") {
+            setValue("count", count + 1);
+        } else if (count > 1) {
+            setValue("count", count - 1);
         }
 
-        console.log(formData)
-        
-    }
-    
-    useEffect(() => {  
-        const total = price * count + formData.toppings.length * 5 * count;      
-        setFormData({...formData, count, total})
-    }, [count, formData.toppings.length])
+        console.log("Form Values:", getValues());
+    };
 
-    const submitHandler = () => {
-        history.push("/success")
-    }
+    useEffect(() => {
+        const pizzaPrice = typeof pizza.price === "number" ? pizza.price : 0;
+        const calculatedTotal = (pizzaPrice * count) + (toppings.length * count * 5);
+        setValue("total", calculatedTotal);
+    }, [count, toppings, pizza.price, setValue]);
 
+    const selections = toppings.length * 5 * count;
 
     return(
-        <div className="flex flex-col items-center py-10 gap-8 font-barlow">
+        <div className="flex flex-col items-center pt-10 gap-8 font-barlow">
             <div className="flex w-full justify-center items-center">
                 <button className="bg-ivory p-4 rounded-l-md" aria-label="Adet azalt" id="decrease" onClick={countHandler} >-</button>
                 <span className="bg-ivory p-4 px-5">{count}</span>
@@ -48,16 +43,14 @@ export default function Submit(props) {
                     <div className="flex flex-col gap-2">
                         <div className="flex justify-between text-muted">
                             <span>Seçimler</span>
-                            <span>{formData.toppings.length * 5 * count}₺</span>
+                            <span>{selections}₺</span>
                         </div>
                         <div className="flex justify-between text-red-500">
                             <span>Toplam</span>
-                            <span>{price * count + formData.toppings.length * 5 * count}₺</span>
+                            <span>{total}₺</span>
                         </div>
                     </div>
                 </div>
-                <button disabled={!isValid} className={`bg-[#FDC913] cursor-pointer rounded-b-md py-2 ${!isValid ? 'opacity-50 cursor-not-allowed' : ''}`} aria-label="Sipariş Ver" data-cy="form-submit" onClick={submitHandler} type="submit">SİPARİŞ VER</button>
-                {!isValid && <span className="text-red-500 text-center text-sm mx-8 mt-4" data-cy="error-message">Lütfen * ile belirtilmiş alanları doldurunuz.</span>}
             </div>
         </div>
     )

@@ -1,13 +1,16 @@
 import { Link } from "react-router-dom"
+import { useFormContext } from "../../../context/FormContext";
 
-export default function PizzaInfo(props) {
-    const { formData } = props;
-    
-    if (!formData.pizza) {
-        return <div>Loading...</div>;
+export default function PizzaInfo() {
+
+    const { watch } = useFormContext();
+    const pizza = watch('pizza');
+
+    if (!pizza) {
+        return <div className="text-center">Loading...</div>;
     }
 
-    const { name, price, rating, ratingCount, description } = formData.pizza
+    const { name, price, rating, ratingCount, description } = pizza
 
     return(
         <div className="bg-ivory px-8 pb-12 font-barlow flex flex-col items-center">
@@ -31,7 +34,7 @@ export default function PizzaInfo(props) {
                         <span>{ratingCount}</span>
                     </div>
                 </div>
-                <p className="text-muted md:text-lg max-w-[320px]">
+                <p className="text-muted md:text-lg max-w-[400px]">
                     {description}
                 </p>
             </div>

@@ -1,20 +1,27 @@
 import '@fontsource/satisfy';
+import { useFormContext } from '../context/FormContext';
 
-export default function Success(props) {
+export default function Success() {
 
-    const { formData } = props;
-    const { size, crust, toppings, total, count } = formData;
-    const { name } = formData.pizza;
+    const { watch } = useFormContext();
+
+    const pizza = watch('pizza');
+    const size = watch('size');
+    const crust = watch('crust');
+    const toppings = watch('toppings');
+    const count = watch('count');
+    const total = watch('total');
+
 
     return(
-        <div className="flex bg-[#CE2829] font-barlow justify-center py-12 h-screen">
+        <div className="flex bg-[#CE2829] font-barlow justify-center py-12 md:h-screen">
             <div className="flex flex-col items-center">
                 <div className="flex flex-col gap-2 items-center border-b border-white pb-8">
                     <p className="font-satisfy text-[#FDC913] text-2xl">lezzetin yolda</p>
                     <p className="text-white text-4xl md:text-5xl">SİPARİŞ ALINDI</p>
                 </div>
                 <div className="flex flex-col items-center gap-12 text-white w-full py-8">
-                    <p className="font-semibold text-xl">{name}</p>
+                    <p className="font-semibold text-center text-xl">{pizza.name} <br/> {pizza.mini}</p>
                     <div className="flex flex-col flex-wrap gap-2 max-w-60 md:max-w-80 ">
                         <p className='font-semibold'>Boyut: <span className="font-medium">{size}</span></p>
                         <p className='font-semibold'>Hamur:  <span className="font-medium">{crust}</span></p>

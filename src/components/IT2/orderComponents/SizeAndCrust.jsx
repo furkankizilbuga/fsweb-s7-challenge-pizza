@@ -1,26 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useFormContext } from "../../../context/FormContext";
 
-export default function SizeAndCrust(props) {
-    const { setFormData, formData } = props;
+export default function SizeAndCrust() {
+    const sizes = ["Küçük", "Orta", "Büyük"];
+    const crusts = ["İnce", "Orta", "Kalın"];
 
-    const [size, setSize] = useState("");
-    const [crust, setCrust] = useState("");
-
-    const sizeHandler = (event) => {
-        setSize(event.target.value);
-    };
-
-    useEffect(() => {
-        setFormData({ ...formData, size });
-    }, [size]);
-
-    const crustHandler = (event) => {
-        setCrust(event.target.value);
-    };
-
-    useEffect(() => {
-        setFormData({ ...formData, crust });
-    }, [crust]);
+    const { errors, register, watch } = useFormContext();
 
     return (
         <div className="flex flex-col gap-10 font-barlow py-12">
@@ -29,27 +14,27 @@ export default function SizeAndCrust(props) {
                     Boyut Seç<span className="text-red-500"> *</span>
                 </label>
                 <div className="flex gap-4 items-center">
-                    {["Küçük", "Orta", "Büyük"].map((sizeOption) => (
-                        <div key={sizeOption}>
+                    {sizes.map((size, index) => (
+                        <div key={index} className="relative">
                             <input
+                                id={`size-${size}`}
                                 className="absolute w-px h-px m-[-1px] p-0 overflow-hidden clip-rect border-0"
-                                data-cy={`radio-${sizeOption.toLowerCase()}`}
-                                onChange={sizeHandler}
-                                checked={size === sizeOption}
-                                value={sizeOption}
+                                data-cy={`radio-${size.toLowerCase()}`}
                                 type="radio"
-                                name="size"
-                                id={sizeOption}
+                                value={size}
+                                {...register("size", { required: true })}
                             />
                             <label
-                                className={`flex items-center justify-center font-medium bg-[#FAF7F2] w-[3rem] h-[3rem] rounded-full relative hover:bg-[#f8e8bc] ${size === sizeOption ? "bg-[#f8e8bc]" : ""}`}
-                                htmlFor={sizeOption}
+                                htmlFor={`size-${size}`}
+                                className={`flex items-center justify-center font-medium bg-[#FAF7F2] w-[3rem] h-[3rem] rounded-full relative hover:bg-[#f8e8bc] cursor-pointer 
+                                    ${watch("size") === size ? 'bg-[#ffd768] border-2 ' : ''}`}
                             >
-                                {sizeOption === "Küçük" ? "S" : sizeOption === "Orta" ? "M" : "L"}
+                                {size === "Küçük" ? "S" : size === "Orta" ? "M" : "L"}
                             </label>
                         </div>
                     ))}
                 </div>
+                {errors.size && <span className="text-red-500">Boyut seçimi zorunludur</span>}
             </div>
             <div className="flex flex-col gap-4">
                 <label className="font-semibold text-xl" aria-label="Hamur Seç">
@@ -58,25 +43,19 @@ export default function SizeAndCrust(props) {
                 <select
                     className="text-muted bg-[#FAF7F2] font-semibold py-4 px-2"
                     data-cy="dropdown"
-                    onChange={crustHandler}
-                    value={crust || "default"}
-                    name="crust"
-                    id="crust"
-                    required
+                    {...register("crust", { required: true })}
+                    defaultValue=""
                 >
-                    <option id="default" value="default" disabled hidden>
+                    <option value="" disabled hidden>
                         - Hamur Kalınlığı Seç -
                     </option>
-                    <option data-cy="ince" value="İnce" id="ince">
-                        İnce
-                    </option>
-                    <option data-cy="orta" value="Orta" id="orta">
-                        Orta
-                    </option>
-                    <option data-cy="kalin" value="Kalın" id="kalın">
-                        Kalın
-                    </option>
+                    {crusts.map((crust, index) => (
+                        <option key={index} value={crust} data-cy={crust.toLowerCase()}>
+                            {crust}
+                        </option>
+                    ))}
                 </select>
+                {errors.crust && <span className="text-red-500">Hamur seçimi zorunludur</span>}
             </div>
         </div>
     );

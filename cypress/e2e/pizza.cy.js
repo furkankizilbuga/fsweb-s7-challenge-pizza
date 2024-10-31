@@ -8,7 +8,7 @@ describe('Home Page Tests', () => {
 
   it('Button leads to order form', () => {
     cy.visit('http://localhost:5173/')
-    cy.get('[data-cy="order-button"]').click()
+    cy.get('[data-cy="order-button-0"]').click()
     cy.url().should("contain", "/order")
   })
 
@@ -22,7 +22,7 @@ describe('Home Page Tests', () => {
   })
 })
 
-const sizeArray = ["kucuk", "orta", "buyuk"]
+const sizeArray = ["küçük", "orta", "büyük"]
 const crustArray = ["İnce", "Orta", "Kalın"]
 
 const crustSelect = (crust) => {
@@ -56,7 +56,7 @@ describe('Order Page Tests', () => {
 
   beforeEach(() => {
     cy.visit('http://localhost:5173/')
-    cy.get('[data-cy="order-button"]').click()
+    cy.get('[data-cy="order-button-0"]').click()
     cy.url().should("contain", "/order")
   })
 
@@ -102,7 +102,7 @@ describe('Order Page Tests', () => {
 
     it("Size > Küçük and all alternatives of Crust", () => {
 
-      sizeSelect("kucuk")
+      sizeSelect("küçük")
       crustArray.forEach((crust) => {
         crustSelect(crust)
       })
@@ -123,7 +123,7 @@ describe('Order Page Tests', () => {
 
     it("Size > Büyük and all alternatives of Crust", () => {
 
-      sizeSelect("buyuk")
+      sizeSelect("büyük")
       crustArray.forEach((crust) => {
         crustSelect(crust)
       })
@@ -139,7 +139,7 @@ describe('Order Page Tests', () => {
 
   describe("Button disabled with only size and toppings", () => {
     it("Size > Küçük and Toppings within right amount", () => {
-      sizeSelect("kucuk")
+      sizeSelect("küçük")
       toppingsCheck(4)
   
       cy.get('[data-cy="error-message"]').should("be.visible")
@@ -153,7 +153,7 @@ describe('Order Page Tests', () => {
     })
 
     it("Size > Büyük and Toppings within right amount", () => {
-      sizeSelect("buyuk")
+      sizeSelect("büyük")
       toppingsCheck(4)
   
       cy.get('[data-cy="error-message"]').should("be.visible")
@@ -195,7 +195,7 @@ describe('Order Page Tests', () => {
   describe("Button disabled with only Size and Name", () => {
 
     it("Size > Küçük and Name Valid", () => {
-      sizeSelect("kucuk")
+      sizeSelect("küçük")
       nameInput("furkan")
   
       cy.get('[data-cy="error-message"]').should("be.visible")
@@ -211,7 +211,7 @@ describe('Order Page Tests', () => {
     })
 
     it("Size > Büyük and Name Valid", () => {
-      sizeSelect("buyuk")
+      sizeSelect("büyük")
       nameInput("furkan")
   
       cy.get('[data-cy="error-message"]').should("be.visible")
@@ -277,7 +277,7 @@ describe('Order Page Tests', () => {
     it("Size > Küçük, Name Valid, and all alternatives of Crust", () => {
       crustArray.forEach(crust => {
         crustSelect(crust)
-        sizeSelect("kucuk")
+        sizeSelect("küçük")
         nameInput("furkan")
     
         cy.get('[data-cy="error-message"]').should("be.visible")
@@ -297,7 +297,7 @@ describe('Order Page Tests', () => {
     it("Size > Büyük, Name Valid, and all alternatives of Crust", () => {
       crustArray.forEach(crust => {
         crustSelect(crust)
-        sizeSelect("buyuk")
+        sizeSelect("büyük")
         nameInput("furkan")
     
         cy.get('[data-cy="error-message"]').should("be.visible")
@@ -332,7 +332,7 @@ describe('Order Page Tests', () => {
     it("Toppings right amount, Size, and all alternatives of Crust", () => {
 
       toppingsCheck(4)
-      sizeSelect("kucuk")
+      sizeSelect("küçük")
       crustArray.forEach(crust => {
         crustSelect(crust)
       })
@@ -348,7 +348,7 @@ describe('Order Page Tests', () => {
       cy.get('[data-cy="error-message"]').should("be.visible")
 
       toppingsCheck(4)
-      sizeSelect("buyuk")
+      sizeSelect("büyük")
       crustArray.forEach(crust => {
         crustSelect(crust)
       })
@@ -389,7 +389,7 @@ describe('Order Page Tests', () => {
 
     it("All Valid", () => {
 
-      sizeSelect("kucuk")
+      sizeSelect("küçük")
       crustSelect("Orta")
       nameInput("furkan")
       toppingsCheck(4)

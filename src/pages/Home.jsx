@@ -1,24 +1,23 @@
-
-import '@fontsource/barlow';
-import '@fontsource-variable/roboto-condensed';
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom";
 import Hero from "../components/IT2/homeComponents/Hero";
 import Choices from "../components/IT2/homeComponents/Choices";
 import Thumbnails from "../components/IT2/homeComponents/Thumbnails";
 import Recommended from "../components/IT2/homeComponents/Recommended";
 import { useRef } from "react";
+import { useFormContext } from '../context/FormContext';
 
-export default function Home(props) {
+export default function Home() {
 
-    const { formData, setFormData, pizza } = props;
+    const { setValue } = useFormContext();
 
     let history = useHistory();
     const choicesRef = useRef(null);
 
-    const clickHandler = (event) => {
-        history.push("/order")
+    const clickHandler = (event, pizza) => {
+        setValue('pizza', pizza);
+        
+        history.push("/order");
         window.scrollTo(0, 0);
-        setFormData({...formData, "pizza": event.target.pizza})
     }
 
     const smoothScroll = () => {
@@ -27,11 +26,11 @@ export default function Home(props) {
 
     return(
         <div>
-            <Hero formData={formData} setFormData={setFormData} pizza={pizza} smoothScroll={smoothScroll} />
+            <Hero smoothScroll={smoothScroll} />
             <div data-cy="choices-section" ref={choicesRef}>
                 <Choices customCSS="bg-ivory" />
             </div>
-            <Thumbnails clickHandler={clickHandler} pizza={pizza} />
+            <Thumbnails clickHandler={clickHandler} />
             <Recommended />
         </div>
     )
