@@ -1,67 +1,4 @@
 import { useEffect, useState } from "react"
-import styled from "styled-components"
-
-const ToppingsContainer = styled.section`
-    padding-top: 45px;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    font-family: "Barlow", sans-serif;
-    color: #5F5F5F;
-`
-
-const ToppingsHeader = styled.h2`
-    font-weight: bold;
-    font-size: 1.25rem;
-    color: black;
-`
-const Mandatory = styled.span`
-    color: red;
-`
-
-const Topping = styled.div`
-    display: flex;
-    gap: 5px;
-    color: #555555;
-    font-weight: bold;
-    align-items: center;
-`
-
-const ToppingsList = styled.div`
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-`
-
-const Input = styled.input`
-    opacity: 0;
-    width: 0;
-    height: 0;
-
-    &:checked + label::after {
-        content: "\\2714";
-        color: black;
-        font-size: 20px;
-        background: #FDC913;
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        border-radius: 5px;
-        align-content: center;
-        padding-left: .7rem;
-    }
-`
-
-const NewInput = styled.label`
-    background: #FAF7F2;
-    height: 40px;
-    width: 40px;
-    position: relative;
-    border-radius: 5px;
-    &:hover {
-        background: #f8e8bc;
-    }
-`
 
 export default function Toppings(props) {
 
@@ -128,26 +65,38 @@ export default function Toppings(props) {
 
 
     return(
-
-        <ToppingsContainer>
-            <ToppingsHeader aria-label="Ek Malzemeler">Ek Malzemeler<Mandatory> *</Mandatory></ToppingsHeader>
-            <p>En az 4 ve en fazla 10 malzeme seçebilirsiniz. 5₺</p>
-            <ToppingsList data-cy="checkbox-container">
+        <div className="flex flex-col font-barlow gap-4">
+            <h2 className="font-semibold text-xl" aria-label="Ek Malzemeler">Ek Malzemeler<span className="text-red-500"> *</span></h2>
+            <p className="font-medium">En az 4 ve en fazla 10 malzeme seçebilirsiniz. 5₺</p>
+            <div className="grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-2.5" data-cy="checkbox-container">
                 {malzemeler.map((malzeme, index) => {
-                    return <Topping data-cy="checkbox-wrapper" key={index}>
-                        
-                        <Input 
-                            onChange={toppingHandler} 
-                            checked={isCheckedArr[index]} 
-                            value={malzeme} 
-                            type="checkbox" 
-                            id={index} 
-                            name="toppings" />
-                        <NewInput htmlFor={index}></NewInput>
-                        <label data-cy="topping-label" htmlFor={index}>{malzeme}</label>
-                    </Topping>
-                })}
-            </ToppingsList>
-        </ToppingsContainer>
+                    return (
+                        <div className="flex gap-2 font-semibold items-center" data-cy="checkbox-wrapper" key={index}> 
+                            <input 
+                                onChange={toppingHandler} 
+                                checked={isCheckedArr[index]} 
+                                value={malzeme} 
+                                type="checkbox" 
+                                id={index} 
+                                name="toppings" 
+                                className="opacity-0 w-0 h-0 peer"
+                            />
+                            <label 
+                                htmlFor={index} 
+                                className="bg-[#FAF7F2] h-10 w-10 rounded-lg relative hover:bg-[#f8e8bc] flex items-center justify-center cursor-pointer"
+                            >
+                            <span 
+                                className={`absolute text-black text-2xl ${isCheckedArr[index] ? "block" : "hidden"}`}
+                                style={{ background: '#FDC913', borderRadius: '5px', paddingLeft: '0.7rem' }}
+                            >
+                                    ✔
+                            </span>
+                            </label>
+                            <label className="text-muted" data-cy="topping-label" htmlFor={index}>{malzeme}</label>
+                        </div>   
+                    )})
+                }
+            </div>
+        </div>
     )
 }
