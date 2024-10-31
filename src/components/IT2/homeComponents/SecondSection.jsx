@@ -297,7 +297,7 @@ export default function SecondSection(props) {
     return(
         <Section>
             <MainSection>
-                {/*<Thumbnails>
+                <Thumbnails>
                     <Lezzetus>
                         <LezzetusTitle>Özel<br/>Lezzetus</LezzetusTitle>
                         <LezzetusDescription>Position:Absolute Acı Pizza</LezzetusDescription>
@@ -374,7 +374,7 @@ export default function SecondSection(props) {
                             </RatePrice>
                         </BottomMenus>
                     </BottomMenuContainer>
-                </BottomSideContainer>*/}
+                </BottomSideContainer>
             </MainSection>
         </Section>
     )

@@ -12,15 +12,6 @@ import axios from "axios";
 import styled from "styled-components"
 import { toast } from 'react-toastify';
 
-
-const FormContainer = styled.form`
-    margin: 0 35vw;
-
-    @media(max-width: 1500px) {
-        margin: 0 30vw;
-    }
-`
-
 export default function Form(props) {
 
     const { pizza, setFormData, formData, setErrors, errors, isValid, setIsValid } = props;
@@ -59,31 +50,29 @@ export default function Form(props) {
 
 
     return (
-        <>
-            <FormContainer onSubmit={submitHandler}>
-                <SizeAndCrust 
-                    setFormData={setFormData} 
-                    formData={formData} />
-                <Toppings 
-                    setErrors={setErrors} 
-                    errors={errors} 
-                    formData={formData} 
-                    setFormData={setFormData} 
-                    toppings={toppings} 
-                    setToppings={setToppings} />
-                <Text 
-                    errors={errors} 
-                    setErrors={setErrors} 
-                    formData={formData} 
-                    setFormData={setFormData} />
-                <Submit 
-                    errors={errors} 
-                    isValid={isValid} 
-                    price={price} 
-                    toppings={toppings} 
-                    setFormData={setFormData} 
-                    formData={formData} />
-            </FormContainer>
-        </>
+        <div className="px-8" onSubmit={submitHandler}>
+            <SizeAndCrust 
+                setFormData={setFormData} 
+                formData={formData} />
+            <Toppings 
+                setErrors={setErrors} 
+                errors={errors} 
+                formData={formData} 
+                setFormData={setFormData} 
+                toppings={toppings} 
+                setToppings={setToppings} />
+            <Text 
+                errors={errors} 
+                setErrors={setErrors} 
+                formData={formData} 
+                setFormData={setFormData} />
+            <Submit 
+                errors={errors} 
+                isValid={isValid} 
+                price={price} 
+                toppings={toppings} 
+                setFormData={setFormData} 
+                formData={formData} />
+            </div>
     )
 }
