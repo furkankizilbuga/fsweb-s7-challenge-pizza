@@ -40,29 +40,29 @@ export default function Form(props) {
     return (
         <div className="px-8 flex flex-col items-center" onSubmit={submitHandler}>
             <div>
-            <SizeAndCrust 
-                setFormData={setFormData} 
-                formData={formData} />
-            <Toppings 
-                setErrors={setErrors} 
-                errors={errors} 
-                formData={formData} 
-                setFormData={setFormData} 
-                toppings={toppings} 
-                setToppings={setToppings} />
-            <Text 
-                errors={errors} 
-                setErrors={setErrors} 
-                formData={formData} 
-                setFormData={setFormData} />
-            <Submit 
-                errors={errors} 
-                isValid={isValid} 
-                price={price} 
-                toppings={toppings} 
-                setFormData={setFormData} 
-                formData={formData} />
-                </div>
+                <SizeAndCrust 
+                    setFormData={setFormData} 
+                    formData={formData} />
+                <Toppings 
+                    setErrors={setErrors} 
+                    errors={errors} 
+                    formData={formData} 
+                    setFormData={setFormData} 
+                    toppings={toppings} 
+                    setToppings={setToppings} />
+                <Text 
+                    errors={errors} 
+                    setErrors={setErrors} 
+                    formData={formData} 
+                    setFormData={setFormData} />
+                <Submit 
+                    errors={errors} 
+                    isValid={isValid} 
+                    price={price} 
+                    toppings={toppings} 
+                    setFormData={setFormData} 
+                    formData={formData} />
             </div>
+        </div>
     )
 }
