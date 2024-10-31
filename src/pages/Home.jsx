@@ -29,7 +29,7 @@ export default function Home(props) {
     return(
         <div>
             <Hero formData={formData} setFormData={setFormData} pizza={pizza} smoothScroll={smoothScroll} />
-            <div ref={choicesRef}>
+            <div data-cy="choices-section" ref={choicesRef}>
                 <Choices customCSS="bg-ivory" />
             </div>
             <Thumbnails clickHandler={clickHandler} pizza={pizza} />

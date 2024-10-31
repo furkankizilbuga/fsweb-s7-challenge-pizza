@@ -22,6 +22,7 @@ export default function Thumbnails(props) {
                                 className="bg-white rounded-full py-1 px-4 text-xs md:text-sm text-red-500 font-medium hover:bg-red-50" 
                                 onClick={clickHandler} 
                                 pizza={pizza}
+                                data-cy="order-button"
                             >
                                 SİPARİŞ VER
                             </button>
@@ -45,6 +46,7 @@ export default function Thumbnails(props) {
                                 className="bg-white rounded-full py-1 px-4 text-xs md:text-sm text-red-500 font-medium hover:bg-red-50" 
                                 onClick={clickHandler} 
                                 pizza={pizza}
+                                data-cy="order2-button"
                             >
                                 SİPARİŞ VER
                             </button> 
@@ -60,7 +62,7 @@ export default function Thumbnails(props) {
                             alt="Hızlı Teslimat"
                         />
                         <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex flex-col gap-2">
-                            <p className="font-semibold text-xl">
+                            <p className="font-semibold text-sm md:text-lg">
                                 <span className="text-red-500">Çoooooook</span> hızlı<br/>
                                 npm gibi kurye
                             </p>
@@ -68,6 +70,7 @@ export default function Thumbnails(props) {
                                 className="bg-white rounded-full py-1 px-4 text-xs md:text-sm text-red-500 font-medium hover:bg-red-50" 
                                 onClick={clickHandler} 
                                 pizza={pizza}
+                                data-cy="order3-button"
                             >
                                 SİPARİŞ VER
                             </button> 

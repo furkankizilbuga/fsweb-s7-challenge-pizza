@@ -5,39 +5,48 @@ describe('page successfully opens', () => {
 })
 
 describe('Home Page Tests', () => {
+
   it('Button leads to order form', () => {
     cy.visit('http://localhost:5173/')
-    cy.get('[data-cy="home-button"]').click()
+    cy.get('[data-cy="order-button"]').click()
     cy.url().should("contain", "/order")
+  })
+
+  it('Scrolls smoothly', () => {
+    cy.visit('http://localhost:5173/')
+    cy.window().then((win) => {
+      const initialScrollY = win.scrollY
+      cy.get('[data-cy="home-button"]').click()
+      cy.window().its('scrollY').should('be.greaterThan', initialScrollY)
+    })
   })
 })
 
 const sizeArray = ["kucuk", "orta", "buyuk"]
-  const crustArray = ["İnce", "Orta", "Kalın"]
+const crustArray = ["İnce", "Orta", "Kalın"]
 
-  const crustSelect = (crust) => {
-    cy.get('[data-cy="dropdown"]').select(crust)
-  }
+const crustSelect = (crust) => {
+  cy.get('[data-cy="dropdown"]').select(crust)
+}
 
-  const sizeSelect = (size) => {
-    cy.get(`[data-cy="radio-${size}"]`).click({force: true})
-  }
+const sizeSelect = (size) => {
+  cy.get(`[data-cy="radio-${size}"]`).click({force: true})
+}
 
-  const nameInput = (name) => {
-    cy.get('[data-cy="name-input"]').clear().type(name)
-  }
+const nameInput = (name) => {
+  cy.get('[data-cy="name-input"]').clear().type(name)
+}
 
-  const toppingsCheck = (amount) => {
-    cy.get('[data-cy="checkbox-container"]')
-      .find('[data-cy="checkbox-wrapper"]')
-      .find('[data-cy="topping-label"]')
-      .each((checkbox, index) => {
-        if (index < amount) {
-          cy.wrap(checkbox).click({force: true})
-        }
-          
-      })
-  } 
+const toppingsCheck = (amount) => {
+  cy.get('[data-cy="checkbox-container"]')
+    .find('[data-cy="checkbox-wrapper"]')
+    .find('[data-cy="topping-label"]')
+    .each((checkbox, index) => {
+      if (index < amount) {
+        cy.wrap(checkbox).click({force: true})
+      }       
+    })
+} 
 
       
 
@@ -45,11 +54,9 @@ const sizeArray = ["kucuk", "orta", "buyuk"]
 
 describe('Order Page Tests', () => {
 
-  
-
   beforeEach(() => {
     cy.visit('http://localhost:5173/')
-    cy.get('[data-cy="home-button"]').click()
+    cy.get('[data-cy="order-button"]').click()
     cy.url().should("contain", "/order")
   })
 
