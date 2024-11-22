@@ -1,5 +1,5 @@
 import './App.css'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import Home from './pages/Home'
 import Order from './pages/Order'
 import Success from './pages/Success'
@@ -7,8 +7,12 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from './layouts/Header'
 import Footer from './layouts/Footer'
+import { useFormContext } from './context/FormContext'
+
 
 function App() {
+
+  const { orderCompleted, pizzaSelected } = useFormContext();
 
   return (
     <>
@@ -19,10 +23,19 @@ function App() {
         </Route>
         <Route exact path="/order">
           <ToastContainer />
-          <Order />
+          {pizzaSelected ? (
+            <Order />
+          ) : (
+            <Redirect to="/" />
+          )}
+          
         </Route>
         <Route exact path="/success">
-          <Success />
+          {orderCompleted ? (
+            <Success /> 
+          ) : (
+            <Redirect to="/" />
+          )}
         </Route>
       </Switch>
       <Footer />

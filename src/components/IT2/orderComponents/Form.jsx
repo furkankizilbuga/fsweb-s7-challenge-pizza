@@ -11,10 +11,15 @@ import { useFormContext } from "../../../context/FormContext";
 export default function Form() {
 
     let history = useHistory();
+    const { setOrderCompleted } = useFormContext();
 
     const submitHandler = (event) => {
 
+        setOrderCompleted(true);
+
         history.push("/success")
+
+
         
 
         /* if(isValid === false) {

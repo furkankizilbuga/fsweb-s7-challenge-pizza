@@ -8,14 +8,18 @@ import { useFormContext } from '../context/FormContext';
 
 export default function Home() {
 
-    const { setValue } = useFormContext();
+    const { setValue, setPizzaSelected } = useFormContext();
 
     let history = useHistory();
     const choicesRef = useRef(null);
 
-    const clickHandler = (event, pizza) => {
+
+    //Recommended kısmına da eklenecek.
+    const clickHandler = (pizza) => {
         setValue('pizza', pizza);
         
+        setPizzaSelected(true);
+
         history.push("/order");
         window.scrollTo(0, 0);
     }

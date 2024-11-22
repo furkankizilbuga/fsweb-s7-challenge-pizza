@@ -52,10 +52,12 @@ export const FormContextProvider = ({ children }) => {
     ]
 
     const [pizzas, setPizzas] = useState(pizzaList);
+    const [orderCompleted, setOrderCompleted] = useState(false);
+    const [pizzaSelected, setPizzaSelected] = useState(false);
 
 
     return (
-        <FormContext.Provider value={{ register, handleSubmit, errors, isValid, watch, setValue, pizzas, getValues}}>
+        <FormContext.Provider value={{ register, handleSubmit, errors, isValid, watch, setValue, pizzas, getValues, setOrderCompleted, orderCompleted, pizzaSelected, setPizzaSelected }}>
             {children}
         </FormContext.Provider>
     );

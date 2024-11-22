@@ -28,7 +28,7 @@ export default function Thumbnails(props) {
                                         </div>
                                         <button 
                                             className="bg-white rounded-full py-1 px-4 text-xs md:text-sm text-red-500 font-medium max-w-28 min-w-28 hover:bg-red-50" 
-                                            onClick={(event) => clickHandler(event, pizza)} 
+                                            onClick={() => clickHandler(pizza)} 
                                             pizza={pizza}
                                             data-cy={`order-button-${index}`}
                                         >
