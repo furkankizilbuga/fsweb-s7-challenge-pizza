@@ -6,7 +6,7 @@ export default function Header() {
 
     return(
         <header className="bg-[#CE2829] p-4">
-            <h1 onClick={() => history.push("/")} className="text-white font-roboto font-semibold text-xl md:text-3xl text-center">Teknolojik Yemekler</h1>
+            <h1 onClick={() => history.push("/")} className="text-white cursor-pointer font-roboto font-semibold text-xl md:text-3xl text-center">Teknolojik Yemekler</h1>
         </header>
     )
 }

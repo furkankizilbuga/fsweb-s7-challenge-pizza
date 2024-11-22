@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from './layouts/Header'
 import Footer from './layouts/Footer'
 import { useFormContext } from './context/FormContext'
+import NotFound from './pages/NotFound'
 
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
           ) : (
             <Redirect to="/" />
           )}
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
       <Footer />
